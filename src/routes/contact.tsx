@@ -6,8 +6,8 @@ import { PageHero } from "@/components/site-layout";
 import { programs } from "@/lib/programs";
 
 export const Route = createFileRoute("/contact")({
-  validateSearch: (s: Record<string, unknown>): { program?: string } => ({
-    program: typeof s.program === "string" ? s.program : undefined,
+  validateSearch: (s: Record<string, unknown>): { program?: string | undefined } => ({
+    program: typeof s["program"] === "string" ? s["program"] : undefined,
   }),
   head: () => ({
     meta: [

@@ -6,8 +6,8 @@ import { ProgramCard } from "@/components/program-card";
 import { categories, programs } from "@/lib/programs";
 
 export const Route = createFileRoute("/internships/")({
-  validateSearch: (s: Record<string, unknown>): { category?: string } => ({
-    category: typeof s.category === "string" ? s.category : undefined,
+  validateSearch: (s: Record<string, unknown>): { category?: string | undefined } => ({
+    category: typeof s["category"] === "string" ? s["category"] : undefined,
   }),
   head: () => ({
     meta: [
