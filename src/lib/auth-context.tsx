@@ -17,7 +17,7 @@ export const useAuth = () => useContext(AuthContext);
 
 function toSessionUser(user: { id: string; email?: string; user_metadata?: Record<string, unknown> } | null): SessionUser | null {
   if (!user) return null;
-  const name = user.user_metadata?.full_name;
+  const name = user.user_metadata?.["full_name"];
   return { id: user.id, email: user.email ?? "", fullName: typeof name === "string" ? name : "" };
 }
 
