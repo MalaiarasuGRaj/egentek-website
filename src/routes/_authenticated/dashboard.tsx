@@ -1,13 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { ArrowRight, BookOpen, FolderKanban, UserRound } from "lucide-react";
-import { getMyProfile } from "@/lib/profile.functions";
+import { profileQueryOptions } from "@/lib/profile.queries";
 import { Button } from "@/components/ui/button";
-
-const profileQueryOptions = queryOptions({
-  queryKey: ["profile"],
-  queryFn: () => getMyProfile(),
-});
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({
