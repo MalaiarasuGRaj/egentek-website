@@ -126,7 +126,7 @@ function Detail() {
             <Button asChild variant="hero" size="lg" className="mt-6 w-full">
               <Link to="/contact" search={{ program: p.title }}>Apply Now</Link>
             </Button>
-            <p className="mt-3 text-center text-xs text-muted-foreground">We'll reply with batch dates and fees.</p>
+            <p className="mt-3 text-center text-xs text-muted-foreground">We'll reply with batch dates and payment details.</p>
           </div>
         </aside>
       </section>
