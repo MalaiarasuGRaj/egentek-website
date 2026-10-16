@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/internships", label: "Internships" },
+  { to: "/services", label: "Services" },
   { to: "/about", label: "About" },
   { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact" },
@@ -70,7 +71,7 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <Logo />
           <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-            Practical, project-based internships built by working freelancers — so students learn the way real teams build.
+            A software company that builds web apps, AI and full-stack products — and trains students to build the same way.
           </p>
         </div>
         <div>
