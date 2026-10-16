@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { LogOut, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/lib/auth-context";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -19,6 +20,56 @@ export function Logo() {
         EGen<span className="text-gradient">Tek</span>
       </span>
     </Link>
+  );
+}
+
+// Header affordance driven by the real session, so a signed-in visitor never
+// sees a "Sign in" button that bounces them back out.
+export function AccountArea({ compact = false, onNavigate }: { compact?: boolean; onNavigate?: () => void }) {
+  const { user, loading, signOut } = useAuth();
+
+  if (loading) {
+    return <div className={compact ? "h-10 rounded-xl bg-secondary/60" : "h-9 w-32 rounded-full bg-secondary/60"} />;
+  }
+
+  if (!user) {
+    return compact ? (
+      <Button asChild variant="hero" className="mt-2 w-full">
+        <Link to="/auth" onClick={onNavigate}>Sign in</Link>
+      </Button>
+    ) : (
+      <Button asChild variant="hero" size="sm" className="px-5">
+        <Link to="/auth">Sign in</Link>
+      </Button>
+    );
+  }
+
+  const firstName = user.fullName.trim().split(" ")[0] || "you";
+
+  if (compact) {
+    return (
+      <div className="mt-2 flex flex-col gap-2 border-t border-border pt-3">
+        <span className="px-3 text-xs text-muted-foreground">Signed in as {user.email}</span>
+        <Button asChild variant="outline" className="w-full">
+          <Link to="/dashboard" onClick={onNavigate}>Dashboard</Link>
+        </Button>
+        <Button variant="ghost" className="w-full" onClick={() => void signOut()}>
+          <LogOut /> Sign out
+        </Button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex items-center gap-2">
+      <span className="hidden text-sm text-muted-foreground xl:inline">Hi, {firstName}</span>
+      <Button asChild variant="outline" size="sm">
+        <Link to="/dashboard" onClick={onNavigate}>Dashboard</Link>
+      </Button>
+      <Button variant="ghost" size="sm" onClick={() => void signOut()} aria-label="Sign out">
+        <LogOut />
+      </Button>
+    </div>
   );
 }
 
