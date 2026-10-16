@@ -13,6 +13,7 @@ export interface Program {
   level: Level;
   weeks: number;
   hoursPerWeek: number;
+  price: number;
   format: "Self-paced" | "Cohort" | "Hybrid";
   tags: string[];
   outcomes: string[];
@@ -46,6 +47,7 @@ export const programs: Program[] = [
     level: "Beginner",
     weeks: 8,
     hoursPerWeek: 8,
+    price: 4999,
     format: "Cohort",
     tags: ["HTML", "CSS", "JavaScript", "React", "Node"],
     outcomes: ["Build responsive layouts", "Write modern JavaScript", "Create React interfaces", "Connect a frontend to an API", "Deploy to the web"],
@@ -67,6 +69,7 @@ export const programs: Program[] = [
     level: "Beginner",
     weeks: 6,
     hoursPerWeek: 6,
+    price: 3499,
     format: "Self-paced",
     tags: ["Python", "OOP", "Scripting"],
     outcomes: ["Master Python syntax", "Use object-oriented design", "Automate files & spreadsheets", "Work with APIs"],
@@ -87,6 +90,7 @@ export const programs: Program[] = [
     level: "Intermediate",
     weeks: 8,
     hoursPerWeek: 7,
+    price: 4499,
     format: "Hybrid",
     tags: ["Java", "OOP", "DSA"],
     outcomes: ["Write clean Java", "Apply OOP principles", "Use core data structures", "Build a console app"],
@@ -107,6 +111,7 @@ export const programs: Program[] = [
     level: "Beginner",
     weeks: 6,
     hoursPerWeek: 7,
+    price: 3999,
     format: "Cohort",
     tags: ["Pandas", "SQL", "Visualization"],
     outcomes: ["Clean real datasets", "Query with SQL", "Build visualizations", "Present findings"],
@@ -127,6 +132,7 @@ export const programs: Program[] = [
     level: "Intermediate",
     weeks: 10,
     hoursPerWeek: 8,
+    price: 5999,
     format: "Cohort",
     tags: ["Python", "scikit-learn", "Responsible AI"],
     outcomes: ["Prepare data for ML", "Train common models", "Evaluate performance", "Understand AI ethics"],
@@ -147,6 +153,7 @@ export const programs: Program[] = [
     level: "Beginner",
     weeks: 6,
     hoursPerWeek: 6,
+    price: 3999,
     format: "Hybrid",
     tags: ["Figma", "Research", "Prototyping"],
     outcomes: ["Run user interviews", "Create wireframes", "Build interactive prototypes", "Assemble a case study"],
@@ -167,6 +174,7 @@ export const programs: Program[] = [
     level: "Intermediate",
     weeks: 8,
     hoursPerWeek: 7,
+    price: 5499,
     format: "Cohort",
     tags: ["Networking", "Linux", "Secure Coding"],
     outcomes: ["Understand threats", "Harden systems", "Write secure code", "Respond to incidents"],
@@ -187,6 +195,7 @@ export const programs: Program[] = [
     level: "Intermediate",
     weeks: 8,
     hoursPerWeek: 7,
+    price: 4999,
     format: "Self-paced",
     tags: ["Git", "Linux", "CI/CD", "Docker"],
     outcomes: ["Use Git fluently", "Work on Linux", "Containerize apps", "Build CI/CD pipelines"],
@@ -207,6 +216,7 @@ export const programs: Program[] = [
     level: "Intermediate",
     weeks: 8,
     hoursPerWeek: 8,
+    price: 5499,
     format: "Hybrid",
     tags: ["React Native", "APIs", "UI"],
     outcomes: ["Build mobile UIs", "Structure an app", "Integrate APIs", "Publish a build"],
@@ -227,6 +237,7 @@ export const programs: Program[] = [
     level: "Beginner",
     weeks: 5,
     hoursPerWeek: 5,
+    price: 2999,
     format: "Self-paced",
     tags: ["SEO", "Content", "Analytics"],
     outcomes: ["Do keyword research", "Write optimized content", "Read analytics", "Plan a campaign"],
@@ -240,5 +251,7 @@ export const programs: Program[] = [
     finalProject: "A full campaign plan with measurement framework.",
   },
 ];
+
+export const formatPrice = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
 export const getProgram = (slug: string) => programs.find((p) => p.slug === slug);
