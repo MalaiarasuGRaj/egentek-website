@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, BookOpen, Code2, Compass, Award, MessagesSquare, LineChart, GitBranch, Rocket } from "lucide-react";
+import { ArrowRight, BookOpen, BrainCircuit, Code2, Compass, Award, MessagesSquare, LineChart, GitBranch, Globe, Layers, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProgramCard } from "@/components/program-card";
 import { categories, programs } from "@/lib/programs";
@@ -8,10 +8,10 @@ import hero from "@/assets/hero.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "EGenTek — Project-based tech internships for students" },
-      { name: "description", content: "Pick a track, learn by building real projects, get mentor feedback and earn a verifiable certificate." },
-      { property: "og:title", content: "EGenTek — Project-based tech internships" },
-      { property: "og:description", content: "Learn by building. Mentor-guided internships in web, AI, data, design and more." },
+      { title: "EGenTek — Software company & project-based tech internships" },
+      { name: "description", content: "We build web apps, AI and full-stack products for clients — and run project-based internships where students build the same way." },
+      { property: "og:title", content: "EGenTek — Software company & project-based tech internships" },
+      { property: "og:description", content: "We ship web apps, AI and full-stack products. Students learn by building with us." },
     ],
   }),
   component: Index,
@@ -31,6 +31,12 @@ const features = [
   { icon: Award, title: "Verifiable certificates", text: "Each certificate has a unique ID anyone can verify." },
 ];
 
+const services = [
+  { icon: Globe, title: "Web App Development", text: "Fast, responsive web applications — from MVPs to production platforms." },
+  { icon: BrainCircuit, title: "AI Solutions", text: "Chatbots, automation and ML-powered features built into real products." },
+  { icon: Layers, title: "Full-Stack Products", text: "End-to-end builds: databases, APIs, auth, payments and deployment." },
+];
+
 function Index() {
   return (
     <>
@@ -47,7 +53,7 @@ function Index() {
               <span className="text-gradient">Build with it.</span>
             </h1>
             <p className="mt-6 max-w-lg text-lg text-muted-foreground">
-              EGenTek runs project-based internships led by working freelancers. Pick a track, ship real projects, and walk away with work you can show.
+              EGenTek is a software company that builds web apps, AI and full-stack products — and runs project-based internships where students learn by building the same way.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="hero" size="lg">
@@ -99,6 +105,25 @@ function Index() {
                 <span className="font-display text-3xl font-bold text-muted-foreground/30">0{i + 1}</span>
               </div>
               <h3 className="mt-6 text-lg font-semibold">{s.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{s.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-20">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-3xl font-bold md:text-4xl">What we build <span className="text-gradient">for clients</span></h2>
+            <p className="mt-2 text-muted-foreground">EGenTek is also a software company — the same team that mentors you ships real products.</p>
+          </div>
+          <Link to="/services" className="hidden text-sm text-primary hover:underline sm:block">Our services →</Link>
+        </div>
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {services.map((s) => (
+            <div key={s.title} className="card-surface card-hover p-6">
+              <s.icon className="size-7 text-primary" />
+              <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{s.text}</p>
             </div>
           ))}
