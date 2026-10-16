@@ -39,3 +39,39 @@ export const getMyProfile = createServerFn({ method: "POST" })
       roles: (roles ?? []).map((r: { role: string }) => r.role),
     };
   });
+
+export type ProfileInput = {
+  fullName: string;
+  phone: string;
+  college: string;
+  degree: string;
+  graduationYear: number | null;
+  bio: string;
+  skills: string[];
+};
+
+export const updateMyProfile = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input: ProfileInput) => input)
+  .handler(async ({ data, context }) => {
+    const { supabase, userId } = context;
+
+    const year = data.graduationYear;
+    const safeYear = typeof year === "number" && year >= 1950 && year <= 2100 ? year : null;
+
+    const { error } = await supabase
+      .from("profiles")
+      .update({
+        full_name: data.fullName.trim().slice(0, 120),
+        phone: data.phone.trim().slice(0, 20) || null,
+        college: data.college.trim().slice(0, 160) || null,
+        degree: data.degree.trim().slice(0, 120) || null,
+        graduation_year: safeYear,
+        bio: data.bio.trim().slice(0, 600) || null,
+        skills: data.skills.map((s) => s.trim()).filter(Boolean).slice(0, 20),
+      })
+      .eq("id", userId);
+
+    if (error) throw new Error("Couldn't save your profile. Please try again.");
+    return { ok: true };
+  });
