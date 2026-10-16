@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Clock, Layers } from "lucide-react";
-import type { Program } from "@/lib/programs";
+import { formatPrice, type Program } from "@/lib/programs";
 
 export function ProgramCard({ p }: { p: Program }) {
   return (
@@ -23,7 +23,7 @@ export function ProgramCard({ p }: { p: Program }) {
       <div className="mt-5 flex items-center gap-4 border-t border-border pt-4 text-xs text-muted-foreground">
         <span className="flex items-center gap-1"><Clock className="size-3.5" />{p.weeks} weeks</span>
         <span className="flex items-center gap-1"><Layers className="size-3.5" />{p.level}</span>
-        <span className="ml-auto">{p.format}</span>
+        <span className="ml-auto text-sm font-semibold text-foreground">{formatPrice(p.price)}</span>
       </div>
     </Link>
   );
