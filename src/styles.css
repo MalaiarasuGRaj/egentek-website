@@ -65,41 +65,41 @@
 
 :root {
   --radius: 0.875rem;
-  --background: oklch(0.17 0.035 262);
-  --foreground: oklch(0.97 0.01 250);
-  --card: oklch(0.21 0.04 262);
-  --card-foreground: oklch(0.97 0.01 250);
-  --popover: oklch(0.21 0.04 262);
-  --popover-foreground: oklch(0.97 0.01 250);
-  --primary: oklch(0.82 0.14 205);
-  --primary-foreground: oklch(0.17 0.035 262);
-  --secondary: oklch(0.26 0.045 262);
-  --secondary-foreground: oklch(0.97 0.01 250);
-  --muted: oklch(0.24 0.04 262);
-  --muted-foreground: oklch(0.72 0.03 255);
-  --accent: oklch(0.7 0.17 250);
-  --accent-foreground: oklch(0.98 0 0);
-  --destructive: oklch(0.65 0.2 25);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.82 0.14 205);
-  --chart-1: oklch(0.82 0.14 205);
-  --chart-2: oklch(0.7 0.17 250);
-  --chart-3: oklch(0.8 0.15 160);
-  --chart-4: oklch(0.85 0.15 85);
-  --chart-5: oklch(0.7 0.2 20);
-  --sidebar: oklch(0.21 0.04 262);
-  --sidebar-foreground: oklch(0.97 0.01 250);
-  --sidebar-primary: oklch(0.82 0.14 205);
-  --sidebar-primary-foreground: oklch(0.17 0.035 262);
-  --sidebar-accent: oklch(0.26 0.045 262);
-  --sidebar-accent-foreground: oklch(0.97 0.01 250);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.82 0.14 205);
-  --gradient-brand: linear-gradient(120deg, oklch(0.82 0.14 205), oklch(0.7 0.17 250));
-  --gradient-glow: radial-gradient(60% 60% at 50% 0%, oklch(0.82 0.14 205 / 22%), transparent 70%);
-  --shadow-glow: 0 0 40px -8px oklch(0.82 0.14 205 / 45%);
+  --background: oklch(0.995 0.002 250);
+  --foreground: oklch(0.22 0.04 262);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.04 262);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.04 262);
+  --primary: oklch(0.58 0.15 230);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.01 250);
+  --secondary-foreground: oklch(0.22 0.04 262);
+  --muted: oklch(0.96 0.01 250);
+  --muted-foreground: oklch(0.5 0.03 258);
+  --accent: oklch(0.55 0.17 250);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.91 0.012 255);
+  --input: oklch(0.89 0.015 255);
+  --ring: oklch(0.58 0.15 230);
+  --chart-1: oklch(0.58 0.15 230);
+  --chart-2: oklch(0.55 0.17 250);
+  --chart-3: oklch(0.65 0.15 160);
+  --chart-4: oklch(0.75 0.15 85);
+  --chart-5: oklch(0.6 0.2 20);
+  --sidebar: oklch(0.98 0.005 250);
+  --sidebar-foreground: oklch(0.22 0.04 262);
+  --sidebar-primary: oklch(0.58 0.15 230);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.95 0.012 250);
+  --sidebar-accent-foreground: oklch(0.22 0.04 262);
+  --sidebar-border: oklch(0.91 0.012 255);
+  --sidebar-ring: oklch(0.58 0.15 230);
+  --gradient-brand: linear-gradient(120deg, oklch(0.6 0.15 220), oklch(0.5 0.17 250));
+  --gradient-glow: radial-gradient(60% 60% at 50% 0%, oklch(0.75 0.12 215 / 18%), transparent 70%);
+  --shadow-glow: 0 12px 36px -12px oklch(0.55 0.15 230 / 35%);
 }
 
 @layer base {
@@ -128,7 +128,7 @@
 @utility bg-glow { background-image: var(--gradient-glow); }
 @utility shadow-glow { box-shadow: var(--shadow-glow); }
 @utility grid-bg {
-  background-image: linear-gradient(oklch(1 0 0 / 4%) 1px, transparent 1px), linear-gradient(90deg, oklch(1 0 0 / 4%) 1px, transparent 1px);
+  background-image: linear-gradient(oklch(0.3 0.04 262 / 5%) 1px, transparent 1px), linear-gradient(90deg, oklch(0.3 0.04 262 / 5%) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 @utility card-surface {
@@ -138,7 +138,7 @@
   transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 @utility card-hover {
-  &:hover { transform: translateY(-4px); border-color: oklch(0.82 0.14 205 / 45%); box-shadow: var(--shadow-glow); }
+  &:hover { transform: translateY(-4px); border-color: oklch(0.58 0.15 230 / 45%); box-shadow: var(--shadow-glow); }
 }
 @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 @utility animate-rise { animation: rise .7s ease both; }
