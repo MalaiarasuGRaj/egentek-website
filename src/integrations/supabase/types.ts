@@ -19,6 +19,8 @@ export type Database = {
           company: string
           created_at: string
           id: string
+          image_source_url: string | null
+          image_url: string | null
           name: string
           published: boolean
           quote: string
@@ -28,6 +30,8 @@ export type Database = {
           company?: string
           created_at?: string
           id?: string
+          image_source_url?: string | null
+          image_url?: string | null
           name: string
           published?: boolean
           quote: string
@@ -37,6 +41,8 @@ export type Database = {
           company?: string
           created_at?: string
           id?: string
+          image_source_url?: string | null
+          image_url?: string | null
           name?: string
           published?: boolean
           quote?: string

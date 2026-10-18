@@ -16,6 +16,11 @@ export function LeaderQuotes() {
   const foundIndex = quotes.findIndex((quote) => quote.id === activeId);
   const index = foundIndex < 0 ? 0 : foundIndex;
   const current = quotes[index];
+  const quoteSize = current && current.quote.length < 45
+    ? "text-4xl sm:text-5xl"
+    : current && current.quote.length < 100
+      ? "text-3xl sm:text-4xl"
+      : "text-2xl sm:text-3xl";
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -40,6 +45,7 @@ export function LeaderQuotes() {
     setActiveId(quotes[(index + direction + quotes.length) % quotes.length]?.id ?? null);
   }
 
+  if (!quotes.length && !isPending) return null;
   if (!current) return null;
 
   return (
@@ -50,45 +56,48 @@ export function LeaderQuotes() {
       <div className="mx-auto max-w-7xl px-5 py-16 md:py-20">
         <div className="flex flex-wrap items-end justify-between gap-5">
           <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">Perspectives on building</p>
-            <h2 id="leader-quotes-title" className="text-3xl font-bold md:text-4xl">What leaders are saying</h2>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">The intelligence era</p>
+            <h2 id="leader-quotes-title" className="text-3xl font-bold md:text-4xl">AI, in their words</h2>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant="outline" size="icon" onClick={() => move(-1)} aria-label="Previous quote" title="Previous quote"><ArrowLeft /></Button>
-            <Button variant="ghost" size="icon" onClick={() => { setPaused(!paused); setReducedMotion(false); }} aria-label={paused || reducedMotion ? "Play quotes" : "Pause quotes"} title={paused || reducedMotion ? "Play quotes" : "Pause quotes"}>
+            <Button variant="outline" size="icon" onClick={() => move(-1)} aria-label="Previous leader quote" title="Previous leader quote"><ArrowLeft /></Button>
+            <Button variant="ghost" size="icon" onClick={() => { setPaused(!paused); setReducedMotion(false); }} aria-label={paused || reducedMotion ? "Play leader quotes" : "Pause leader quotes"} title={paused || reducedMotion ? "Play leader quotes" : "Pause leader quotes"}>
               {paused || reducedMotion ? <Play /> : <Pause />}
             </Button>
-            <Button variant="outline" size="icon" onClick={() => move(1)} aria-label="Next quote" title="Next quote"><ArrowRight /></Button>
+            <Button variant="outline" size="icon" onClick={() => move(1)} aria-label="Next leader quote" title="Next leader quote"><ArrowRight /></Button>
           </div>
         </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-[80px_1fr]">
-          <Quote className="size-12 text-primary/40 md:size-16" aria-hidden="true" />
-          <div>
-            {samples && <p className="mb-4 text-xs font-medium text-muted-foreground">Sample perspectives · Not actual endorsements</p>}
-            <figure aria-label={`Quote ${index + 1} of ${quotes.length}`} className="flex min-h-[330px] flex-col justify-between sm:min-h-[270px] md:min-h-[240px]">
-              <blockquote className="max-w-4xl text-2xl font-medium leading-relaxed md:text-3xl">“{current.quote}”</blockquote>
-              <figcaption className="mt-8 flex items-center gap-4">
-                <span aria-hidden="true" className="grid size-12 shrink-0 place-items-center rounded-full bg-primary/10 font-display font-semibold text-primary">
-                  {current.name.split(" ").slice(0, 2).map((part) => part[0]).join("")}
-                </span>
-                <div className="min-w-0">
-                  <p className="font-semibold">{current.name}</p>
-                  <p className="text-sm text-muted-foreground">{[current.role, current.company].filter(Boolean).join(" · ")}</p>
+        {samples && <p className="mt-4 text-xs text-muted-foreground">Public quotes · Not EGenTek endorsements</p>}
+        <div className="mt-8 grid gap-6 md:grid-cols-[minmax(180px,280px)_1fr]" aria-live="polite">
+          <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted sm:aspect-[4/3] md:aspect-auto md:min-h-80 md:max-h-[420px]">
+            {current.imageUrl ? <img className="absolute inset-0 size-full object-cover object-center" src={current.imageUrl} alt={`${current.name}`} onError={(event) => { event.currentTarget.style.display = "none"; }} /> : <div className="absolute inset-0 grid place-items-center text-5xl font-semibold text-primary">{current.name.split(" ").map((part) => part[0]).slice(0, 2).join("")}</div>}
+          </div>
+          <article key={current.id} aria-label={`Leader quote ${index + 1} of ${quotes.length}`} className="flex min-h-56 flex-col justify-between border-l-2 border-primary/50 bg-background p-6 sm:p-8 md:min-h-80 md:p-10">
+            <div>
+              <Quote className="mb-5 size-8 text-primary/70" aria-hidden="true" />
+              <blockquote className={`max-w-3xl font-medium leading-tight ${quoteSize}`}>“{current.quote}”</blockquote>
+              {current.description && <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">{current.description}</p>}
+            </div>
+            <footer className="mt-8 flex flex-wrap items-end justify-between gap-4 border-t border-border pt-5">
+              <div>
+                <p className="text-lg font-semibold">{current.name}</p>
+                <p className="text-sm text-muted-foreground">{[current.role, current.company].filter(Boolean).join(" · ")}</p>
+                <div className="mt-2 flex flex-wrap gap-x-4">
+                  {current.sourceUrl && <a className="text-xs text-primary underline-offset-4 hover:underline" href={current.sourceUrl} target="_blank" rel="noreferrer">Quote source</a>}
+                  {current.imageSourceUrl && <a className="text-xs text-muted-foreground underline-offset-4 hover:underline" href={current.imageSourceUrl} target="_blank" rel="noreferrer">Photo credit</a>}
                 </div>
-              </figcaption>
-            </figure>
-            <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-5">
-              <div className="flex flex-wrap gap-1" aria-label="Choose a quote">
-                {quotes.map((quote, position) => <Button key={quote.id} variant="ghost" size="icon" className="size-8" onClick={() => setActiveId(quote.id)} aria-label={`Show quote ${position + 1}`} aria-pressed={index === position}>
-                  <span className={`h-1.5 w-5 rounded-full ${index === position ? "bg-primary" : "bg-border"}`} />
-                </Button>)}
               </div>
               <span className="text-xs tabular-nums text-muted-foreground">{String(index + 1).padStart(2, "0")} / {String(quotes.length).padStart(2, "0")}</span>
-            </div>
-            {isError && <p role="status" className="mt-3 text-xs text-muted-foreground">Live quotes are temporarily unavailable.</p>}
-            {isPending && <span className="sr-only" role="status">Loading published quotes</span>}
-          </div>
+            </footer>
+          </article>
         </div>
+        <div className="mt-5 flex justify-center gap-1" aria-label="Choose a leader quote">
+          {quotes.map((quote, position) => <Button key={quote.id} variant="ghost" size="icon" className="size-8" onClick={() => setActiveId(quote.id)} aria-label={`Show leader quote ${position + 1}`} aria-pressed={index === position}>
+            <span className={`h-1.5 w-5 rounded-full ${index === position ? "bg-primary" : "bg-border"}`} />
+          </Button>)}
+        </div>
+        {isError && <p role="status" className="mt-4 text-xs text-muted-foreground">Live quotes are temporarily unavailable.</p>}
+        {isPending && <span className="sr-only" role="status">Loading published quotes</span>}
       </div>
     </section>
   );

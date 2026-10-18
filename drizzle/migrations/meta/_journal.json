@@ -15,6 +15,13 @@
       "when": 1792310266453,
       "tag": "0001_create_leader_quotes",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792310266454,
+      "tag": "0002_add_leader_quote_images",
+      "breakpoints": true
     }
   ]
 }

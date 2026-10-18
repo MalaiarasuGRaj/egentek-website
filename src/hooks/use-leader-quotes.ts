@@ -13,12 +13,31 @@ export function useLeaderQuotes() {
     enabled: hydrated,
     queryFn: async (): Promise<LeaderQuote[]> => {
       const { data, error } = await supabase.from("leader_quotes")
-        .select("id,quote,name,role,company")
+        .select("id,quote,name,role,company,image_url,image_source_url")
         .eq("published", true)
         .order("created_at", { ascending: false })
         .order("id", { ascending: false });
-      if (error) throw error;
-      return data ?? [];
+      const missingImageColumns = error && (
+        error.code === "PGRST204" || error.code === "42703" ||
+        /image_url|image_source_url/i.test(error.message)
+      );
+      if (error && !missingImageColumns) throw error;
+
+      if (error) {
+        const legacyResult = await supabase.from("leader_quotes")
+          .select("id,quote,name,role,company")
+          .eq("published", true)
+          .order("created_at", { ascending: false })
+          .order("id", { ascending: false });
+        if (legacyResult.error) throw legacyResult.error;
+        return (legacyResult.data ?? []).map((quote) => ({ ...quote }));
+      }
+
+      return (data ?? []).map(({ image_url, image_source_url, ...quote }) => ({
+        ...quote,
+        ...(image_url ? { imageUrl: image_url } : {}),
+        ...(image_source_url ? { imageSourceUrl: image_source_url } : {}),
+      }));
     },
     // Reconcile missed events after a connection interruption.
     refetchInterval: 30000,
