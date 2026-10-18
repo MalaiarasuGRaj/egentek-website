@@ -93,7 +93,8 @@ function Auth() {
     const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
     setBusy(false);
     if (error) {
-      return toast.error(error.message === "Invalid login credentials" ? "That email and password don't match." : error.message);
+      toast.error(error.message === "Invalid login credentials" ? "That email and password don't match." : error.message);
+      return;
     }
     navigate({ to: "/dashboard", replace: true });
   }
