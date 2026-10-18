@@ -14,6 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
+      leader_quotes: {
+        Row: {
+          company: string
+          created_at: string
+          id: string
+          name: string
+          published: boolean
+          quote: string
+          role: string
+        }
+        Insert: {
+          company?: string
+          created_at?: string
+          id?: string
+          name: string
+          published?: boolean
+          quote: string
+          role?: string
+        }
+        Update: {
+          company?: string
+          created_at?: string
+          id?: string
+          name?: string
+          published?: boolean
+          quote?: string
+          role?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           bio: string | null

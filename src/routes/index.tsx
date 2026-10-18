@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ProgramCard } from "@/components/program-card";
 import { categories, programs } from "@/lib/programs";
 import hero from "@/assets/hero.jpg";
+import { LeaderQuotes } from "@/components/leader-quotes";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -12,6 +13,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Mentor-guided, project-based internships for students. Build real projects, get human feedback, earn a verifiable certificate." },
       { property: "og:title", content: "EGenTek — Project-based tech internships" },
       { property: "og:description", content: "Learn by building real projects with mentors who ship client work every week." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
@@ -123,7 +126,9 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-24">
+      <LeaderQuotes />
+
+      <section className="mx-auto max-w-7xl px-5 pt-20 pb-24">
         <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 text-center md:p-16">
           <div className="absolute inset-0 bg-glow" />
           <div className="relative">
