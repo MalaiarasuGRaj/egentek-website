@@ -66,7 +66,7 @@ function Auth() {
         redirectTo: `${window.location.origin}/reset-password`,
       });
       setBusy(false);
-      if (error) return toast.error(error.message);
+      if (error) { toast.error(error.message); return; }
       setNotice("reset");
       return;
     }
@@ -81,7 +81,7 @@ function Auth() {
         },
       });
       setBusy(false);
-      if (error) return toast.error(error.message);
+      if (error) { toast.error(error.message); return; }
       if (!data.session) {
         setNotice("confirm");
         return;
@@ -103,7 +103,7 @@ function Auth() {
     setBusy(true);
     const result = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin });
     setBusy(false);
-    if (result.error) return toast.error("Google sign-in didn't go through. Try again or use email.");
+    if (result.error) { toast.error("Google sign-in didn't go through. Try again or use email."); return; }
     if (result.redirected) return; // the browser is on its way to Google
   }
 
