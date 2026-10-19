@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
+import { ApplyButton } from "@/components/apply-button";
 import { ProgramCard } from "@/components/program-card";
 import { getProgram, programs, type Program } from "@/lib/programs";
 
@@ -147,11 +147,7 @@ function Detail() {
                 </span>
               ))}
             </div>
-            <Button asChild variant="hero" size="lg" className="mt-6 w-full">
-              <Link to="/apply" search={{ program: p.slug }}>
-                Apply Now
-              </Link>
-            </Button>
+            <ApplyButton label="Apply Now" variant="hero" size="lg" className="mt-6 w-full" />
             <p className="mt-3 text-center text-xs text-muted-foreground">
               We'll reply with batch dates and next steps.
             </p>

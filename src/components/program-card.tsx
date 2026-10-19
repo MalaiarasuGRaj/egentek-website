@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Clock, Layers } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ApplyButton } from "@/components/apply-button";
 import type { Program } from "@/lib/programs";
 
 export function ProgramCard({ p }: { p: Program }) {
@@ -41,11 +41,7 @@ export function ProgramCard({ p }: { p: Program }) {
           <Layers className="size-3.5" />
           {p.level}
         </span>
-        <Button asChild size="sm" className="relative z-10 ml-auto">
-          <Link to="/apply" search={{ program: p.slug }}>
-            Apply
-          </Link>
-        </Button>
+        <ApplyButton size="sm" className="relative z-10 ml-auto" />
       </div>
     </div>
   );

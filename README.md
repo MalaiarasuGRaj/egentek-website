@@ -38,12 +38,6 @@ The dev server runs at http://localhost:3000.
 
 Quotes are in `src/lib/leader-quotes.ts`. Each entry needs a verifiable `sourceUrl` and a photo in `public/leaders/` with its Wikimedia Commons (or other licensed) source in `imageSourceUrl`. Each leader should appear once.
 
-## Application and contact forms
-
-The application form (`/apply`) and contact form (`/contact`) send their data to the URL in `VITE_FORM_ENDPOINT`. Set it in the Vercel project settings, or in a local `.env` file copied from `.env.example`. The value is read at build time, so redeploy after changing it.
-
-Until it is set, the forms show a message asking people to email hello@egentek.in.
-
 ## Deployment (Vercel)
 
 1. Import the repository in Vercel.
