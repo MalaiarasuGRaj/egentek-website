@@ -11,8 +11,6 @@ import {
   Rocket,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ProgramCard } from "@/components/program-card";
-import { categories, programs } from "@/lib/programs";
 import hero from "@/assets/hero.jpg";
 import { LeaderQuotes } from "@/components/leader-quotes";
 
@@ -116,43 +114,6 @@ function Index() {
               className="relative rounded-3xl border border-border"
             />
           </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 py-16">
-        <h2 className="text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-          Browse by interest
-        </h2>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
-          {categories.map((c) => (
-            <Link
-              key={c}
-              to="/internships"
-              search={{ category: c }}
-              className="rounded-full border border-border bg-card px-4 py-2 text-sm transition-colors hover:border-primary hover:text-primary"
-            >
-              {c}
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 py-16">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <h2 className="text-3xl font-bold md:text-4xl">Featured internships</h2>
-            <p className="mt-2 text-muted-foreground">
-              Structured tracks with a clear finish line.
-            </p>
-          </div>
-          <Link to="/internships" className="hidden text-sm text-primary hover:underline sm:block">
-            View all →
-          </Link>
-        </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {programs.slice(0, 6).map((p) => (
-            <ProgramCard key={p.slug} p={p} />
-          ))}
         </div>
       </section>
 
