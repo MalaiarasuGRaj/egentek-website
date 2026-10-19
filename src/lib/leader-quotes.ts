@@ -39,12 +39,14 @@ export const leaderQuotes: LeaderQuote[] = [
   {
     id: "demis-hassabis",
     quote:
-      "The reason I’ve worked on AI my whole life is that I’m passionate about science and finding out knowledge.",
-    description: "Hassabis connects a lifelong interest in AI with scientific discovery.",
+      "I’ve worked on this my whole life because I believe it’s going to be the most beneficial technology to humanity.",
+    description:
+      "Hassabis explains his lifelong commitment to AI as a technology that could benefit humanity.",
     name: "Demis Hassabis",
     role: "Google DeepMind co-founder and CEO",
-    company: "Nobel Prize interview, 2024",
-    sourceUrl: "https://www.nobelprize.org/prizes/chemistry/2024/hassabis/interview/",
+    company: "AFP report, October 2024",
+    sourceUrl:
+      "https://www.macaubusiness.com/demis-hassabis-from-chess-prodigy-to-nobel-winning-ai-pioneer/",
     imageUrl: "/leaders/demis-hassabis.jpg",
     imageSourceUrl:
       "https://commons.wikimedia.org/wiki/File:Demis_Hassabis,_2024_Nobel_Prize_Laureate_in_Chemistry_7_(cropped).jpg",
