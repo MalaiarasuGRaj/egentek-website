@@ -53,9 +53,7 @@ function Detail() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-border">
-        <div className="absolute inset-0 grid-bg" />
-        <div className="absolute inset-0 bg-glow" />
-        <div className="relative mx-auto max-w-7xl px-5 py-16 animate-rise">
+        <div className="relative mx-auto max-w-7xl px-5 py-16">
           <Link to="/internships" className="text-sm text-muted-foreground hover:text-foreground">
             ← All internships
           </Link>
@@ -134,7 +132,7 @@ function Detail() {
         </div>
 
         <aside className="lg:sticky lg:top-24 lg:self-start">
-          <div className="card-surface p-6 shadow-glow">
+          <div className="card-surface p-6">
             <h3 className="text-lg font-semibold">Ready to start?</h3>
             <div className="mt-4 flex items-baseline gap-2">
               <span className="text-3xl font-bold text-primary">{formatPrice(p.price)}</span>

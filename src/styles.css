@@ -97,9 +97,6 @@
   --sidebar-accent-foreground: oklch(0.22 0.04 262);
   --sidebar-border: oklch(0.91 0.012 255);
   --sidebar-ring: oklch(0.58 0.15 230);
-  --gradient-brand: linear-gradient(120deg, oklch(0.6 0.15 220), oklch(0.5 0.17 250));
-  --gradient-glow: radial-gradient(60% 60% at 50% 0%, oklch(0.75 0.12 215 / 18%), transparent 70%);
-  --shadow-glow: 0 12px 36px -12px oklch(0.55 0.15 230 / 35%);
 }
 
 @layer base {
@@ -126,53 +123,14 @@
   }
 }
 
-@utility text-gradient {
-  background-image: var(--gradient-brand);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-@utility bg-brand {
-  background-image: var(--gradient-brand);
-}
-@utility bg-glow {
-  background-image: var(--gradient-glow);
-}
-@utility shadow-glow {
-  box-shadow: var(--shadow-glow);
-}
-@utility grid-bg {
-  background-image:
-    linear-gradient(oklch(0.3 0.04 262 / 5%) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.3 0.04 262 / 5%) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
 @utility card-surface {
   background-color: var(--color-card);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  border-radius: var(--radius-lg);
 }
 @utility card-hover {
+  transition: border-color 0.2s ease;
   &:hover {
-    transform: translateY(-4px);
-    border-color: oklch(0.58 0.15 230 / 45%);
-    box-shadow: var(--shadow-glow);
+    border-color: var(--color-primary);
   }
-}
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-@utility animate-rise {
-  animation: rise 0.7s ease both;
 }

@@ -77,17 +77,15 @@ function Index() {
   return (
     <>
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg" />
-        <div className="absolute inset-0 bg-glow" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 lg:grid-cols-2 lg:py-28">
-          <div className="animate-rise">
+          <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-4 py-1.5 text-xs text-muted-foreground">
               <span className="size-2 rounded-full bg-primary" /> New batches opening soon
             </span>
             <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] md:text-6xl">
               Don't just learn tech.
               <br />
-              <span className="text-gradient">Build with it.</span>
+              <span className="text-primary">Build with it.</span>
             </h1>
             <p className="mt-6 max-w-lg text-lg text-muted-foreground">
               Project-based internships where students learn by shipping real work — guided by
@@ -104,14 +102,13 @@ function Index() {
               </Button>
             </div>
           </div>
-          <div className="relative animate-rise [animation-delay:150ms]">
-            <div className="absolute -inset-4 rounded-3xl bg-brand opacity-20 blur-3xl" />
+          <div className="relative">
             <img
               src={hero}
               alt="Students building projects together"
               width={1280}
               height={960}
-              className="relative rounded-3xl border border-border"
+              className="relative rounded-lg border border-border"
             />
           </div>
         </div>
@@ -141,7 +138,7 @@ function Index() {
             <h2 className="text-3xl font-bold md:text-4xl">
               Built like a real team,
               <br />
-              <span className="text-gradient">not a lecture hall.</span>
+              <span className="text-primary">not a lecture hall.</span>
             </h2>
             <p className="mt-4 text-muted-foreground">
               Our mentors are freelancers who ship client work every week. You'll learn the same
@@ -163,8 +160,7 @@ function Index() {
       <LeaderQuotes />
 
       <section className="mx-auto max-w-7xl px-5 pt-20 pb-24">
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 text-center md:p-16">
-          <div className="absolute inset-0 bg-glow" />
+        <div className="relative overflow-hidden rounded-lg border border-border bg-card p-10 text-center md:p-16">
           <div className="relative">
             <h2 className="text-3xl font-bold md:text-5xl">Your first real project starts here.</h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">

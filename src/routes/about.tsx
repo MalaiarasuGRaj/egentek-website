@@ -50,14 +50,14 @@ function About() {
       />
       <section className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-2">
         <div className="card-surface p-8">
-          <h2 className="text-2xl font-bold text-gradient">Mission</h2>
+          <h2 className="text-2xl font-bold text-primary">Mission</h2>
           <p className="mt-3 text-muted-foreground">
             Give every student a structured, mentor-guided path from learning a skill to shipping
             real work with it.
           </p>
         </div>
         <div className="card-surface p-8">
-          <h2 className="text-2xl font-bold text-gradient">Vision</h2>
+          <h2 className="text-2xl font-bold text-primary">Vision</h2>
           <p className="mt-3 text-muted-foreground">
             A generation of builders who graduate with portfolios, not just transcripts.
           </p>

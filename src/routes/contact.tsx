@@ -57,7 +57,7 @@ function Contact() {
         <div className="card-surface p-8">
           {sent ? (
             <div className="py-16 text-center">
-              <h2 className="text-2xl font-bold text-gradient">Thanks! We got your message.</h2>
+              <h2 className="text-2xl font-bold text-primary">Thanks! We got your message.</h2>
               <p className="mt-2 text-muted-foreground">We'll get back to you soon.</p>
             </div>
           ) : (

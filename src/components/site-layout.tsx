@@ -14,11 +14,11 @@ const nav = [
 export function Logo() {
   return (
     <Link to="/" className="flex items-center gap-2 font-display text-xl font-bold">
-      <span className="grid size-8 place-items-center rounded-lg bg-brand text-primary-foreground">
+      <span className="grid size-8 place-items-center rounded-lg bg-primary text-primary-foreground">
         E
       </span>
       <span>
-        EGen<span className="text-gradient">Tek</span>
+        EGen<span className="text-primary">Tek</span>
       </span>
     </Link>
   );
@@ -118,9 +118,7 @@ export function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden border-b border-border">
-      <div className="absolute inset-0 grid-bg" />
-      <div className="absolute inset-0 bg-glow" />
-      <div className="relative mx-auto max-w-4xl px-5 py-20 text-center animate-rise">
+      <div className="relative mx-auto max-w-4xl px-5 py-20 text-center">
         <p className="text-sm font-semibold uppercase tracking-widest text-primary">{eyebrow}</p>
         <h1 className="mt-3 text-4xl font-bold md:text-5xl">{title}</h1>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">{subtitle}</p>
