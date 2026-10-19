@@ -13,7 +13,10 @@ export default defineConfig({
   plugins: [
     tsConfigPaths(),
     tanstackStart({
-      spa: { enabled: true },
+      spa: {
+        enabled: true,
+        prerender: { outputPath: "index.html", crawlLinks: true, autoSubfolderIndex: true },
+      },
     }),
     react(),
     tailwindcss(),

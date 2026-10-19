@@ -65,15 +65,14 @@ export const leaderQuotes: LeaderQuote[] = [
   },
   {
     id: "sundar-pichai",
-    quote:
-      "AI is probably the most important thing humanity has ever worked on. I think of it as something more profound than electricity or fire.",
+    quote: "I think of it as something more profound than electricity or fire.",
     description:
       "Pichai frames AI as one of the most significant technologies humanity has developed.",
     name: "Sundar Pichai",
     role: "Alphabet and Google CEO",
     company: "World Economic Forum, Davos, 2018",
     sourceUrl:
-      "https://www.businesstoday.in/wef-2018/news/story/wef-2018-ai-is-more-profound-than-electricity-or-fire-says-sundar-pichai-98577-2018-01-25",
+      "https://www.hollywoodreporter.com/business/business-news/google-ceo-calls-ai-more-profound-electricity-fire-1077805/",
     imageUrl: "/leaders/sundar-pichai.jpg",
     imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Sundar_Pichai_-_2023_(cropped).jpg",
   },
@@ -84,8 +83,9 @@ export const leaderQuotes: LeaderQuote[] = [
     description: "Nadella explains that Microsoft designed its AI to keep people in control.",
     name: "Satya Nadella",
     role: "Microsoft CEO",
-    company: "NPR interview, December 2023",
-    sourceUrl: "https://www.npr.org/transcripts/1221128925",
+    company: "Interview, December 2023",
+    sourceUrl:
+      "https://www.gpb.org/news/2023/12/27/microsoft-ceo-satya-nadella-discusses-the-promise-and-potential-perils-of-ai",
     imageUrl: "/leaders/satya-nadella.jpg",
     imageSourceUrl:
       "https://commons.wikimedia.org/wiki/File:MS-Exec-Nadella-Satya-2017-08-31-22_(cropped).jpg",
