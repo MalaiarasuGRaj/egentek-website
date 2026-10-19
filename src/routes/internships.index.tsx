@@ -3,12 +3,9 @@ import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
 import { PageHero } from "@/components/site-layout";
 import { ProgramCard } from "@/components/program-card";
-import { categories, programs } from "@/lib/programs";
+import { programs } from "@/lib/programs";
 
 export const Route = createFileRoute("/internships/")({
-  validateSearch: (s: Record<string, unknown>): { category?: string | undefined } => ({
-    category: typeof s["category"] === "string" ? s["category"] : undefined,
-  }),
   head: () => ({
     meta: [
       { title: "Internship Programs — EGenTek" },
@@ -27,28 +24,16 @@ export const Route = createFileRoute("/internships/")({
   component: Catalog,
 });
 
-const levels = ["All", "Beginner", "Intermediate", "Advanced"];
-
 function Catalog() {
-  const search = Route.useSearch();
-  const navigate = Route.useNavigate();
   const [q, setQ] = useState("");
-  const [level, setLevel] = useState("All");
-  const category = search.category ?? "All";
 
   const list = useMemo(
     () =>
-      programs.filter(
-        (p) =>
-          (category === "All" || p.category === category) &&
-          (level === "All" || p.level === level) &&
-          (p.title + p.tags.join(" ") + p.tagline).toLowerCase().includes(q.toLowerCase()),
+      programs.filter((p) =>
+        (p.title + p.tags.join(" ") + p.tagline).toLowerCase().includes(q.trim().toLowerCase()),
       ),
-    [q, level, category],
+    [q],
   );
-
-  const chip = (active: boolean) =>
-    `rounded-full border px-4 py-1.5 text-sm transition-colors ${active ? "border-primary bg-primary text-primary-foreground" : "border-border hover:border-primary"}`;
 
   return (
     <>
@@ -64,26 +49,9 @@ function Catalog() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search by skill or tool…"
+            aria-label="Search internships"
             className="h-12 w-full rounded-full border border-input bg-card pl-11 pr-4 outline-none focus:border-primary"
           />
-        </div>
-        <div className="mt-6 flex flex-wrap gap-2">
-          {["All", ...categories].map((c) => (
-            <button
-              key={c}
-              className={chip(category === c)}
-              onClick={() => navigate({ search: { category: c === "All" ? undefined : c } })}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {levels.map((l) => (
-            <button key={l} className={chip(level === l)} onClick={() => setLevel(l)}>
-              {l}
-            </button>
-          ))}
         </div>
         <p className="mt-8 text-sm text-muted-foreground">
           {list.length} program{list.length !== 1 && "s"}
@@ -96,7 +64,7 @@ function Catalog() {
           </div>
         ) : (
           <div className="card-surface mt-4 p-12 text-center text-muted-foreground">
-            No programs match those filters yet.
+            No programs match your search yet.
           </div>
         )}
       </section>

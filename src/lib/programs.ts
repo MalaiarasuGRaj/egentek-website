@@ -23,19 +23,6 @@ export interface Program {
   finalProject: string;
 }
 
-export const categories = [
-  "Web Development",
-  "Python",
-  "Java",
-  "Data Analytics",
-  "AI & ML",
-  "UI/UX Design",
-  "Cybersecurity",
-  "Cloud & DevOps",
-  "Mobile Apps",
-  "Digital Marketing",
-] as const;
-
 const mod = (title: string, ...lessons: string[]): Module => ({ title, lessons });
 
 export const programs: Program[] = [
