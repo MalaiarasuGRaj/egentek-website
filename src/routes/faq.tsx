@@ -33,14 +33,6 @@ const faqs = [
     "Yes. Programs are remote, with self-paced, cohort or hybrid formats.",
   ],
   [
-    "How much does a program cost?",
-    "Each program has a one-time fee, shown on its page and card. Fees range from ₹2,999 to ₹5,999 depending on duration and level.",
-  ],
-  [
-    "How do I pay?",
-    "Apply through the program page and we'll share batch dates and payment details by email. Online payment is coming soon.",
-  ],
-  [
     "What will I build?",
     "Every program includes weekly tasks, a mini-project and a final project you can add to your portfolio.",
   ],

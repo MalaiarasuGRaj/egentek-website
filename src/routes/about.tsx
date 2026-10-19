@@ -26,7 +26,7 @@ const values = [
   {
     icon: ShieldCheck,
     title: "Honest promises",
-    text: "Clear fees, clear requirements, no inflated claims.",
+    text: "Clear requirements, no inflated claims.",
   },
   {
     icon: Lightbulb,

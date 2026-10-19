@@ -280,6 +280,4 @@ export const programs: Program[] = [
   },
 ];
 
-export const formatPrice = (n: number) => `₹${n.toLocaleString("en-IN")}`;
-
 export const getProgram = (slug: string) => programs.find((p) => p.slug === slug);

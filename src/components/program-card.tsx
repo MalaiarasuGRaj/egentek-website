@@ -1,21 +1,26 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Clock, Layers } from "lucide-react";
-import { formatPrice, type Program } from "@/lib/programs";
+import { Button } from "@/components/ui/button";
+import type { Program } from "@/lib/programs";
 
 export function ProgramCard({ p }: { p: Program }) {
   return (
-    <Link
-      to="/internships/$slug"
-      params={{ slug: p.slug }}
-      className="card-surface card-hover group flex flex-col p-6"
-    >
+    <div className="card-surface card-hover group relative flex flex-col p-6">
       <div className="flex items-center justify-between">
         <span className="rounded-full bg-secondary px-3 py-1 text-xs text-primary">
           {p.category}
         </span>
         <ArrowUpRight className="size-5 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
       </div>
-      <h3 className="mt-5 text-xl font-semibold">{p.title}</h3>
+      <h3 className="mt-5 text-xl font-semibold">
+        <Link
+          to="/internships/$slug"
+          params={{ slug: p.slug }}
+          className="after:absolute after:inset-0"
+        >
+          {p.title}
+        </Link>
+      </h3>
       <p className="mt-2 flex-1 text-sm text-muted-foreground">{p.tagline}</p>
       <div className="mt-5 flex flex-wrap gap-1.5">
         {p.tags.slice(0, 4).map((t) => (
@@ -36,10 +41,12 @@ export function ProgramCard({ p }: { p: Program }) {
           <Layers className="size-3.5" />
           {p.level}
         </span>
-        <span className="ml-auto text-sm font-semibold text-foreground">
-          {formatPrice(p.price)}
-        </span>
+        <Button asChild size="sm" className="relative z-10 ml-auto">
+          <Link to="/contact" search={{ program: p.title }}>
+            Apply
+          </Link>
+        </Button>
       </div>
-    </Link>
+    </div>
   );
 }

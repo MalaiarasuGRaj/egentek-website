@@ -35,7 +35,7 @@ function Contact() {
       <PageHero
         eyebrow="Contact"
         title="Apply or say hello"
-        subtitle="Tell us which program interests you and we'll share the next batch dates and fees."
+        subtitle="Tell us which program interests you and we'll share the next batch dates and next steps."
       />
       <section className="mx-auto grid max-w-6xl gap-10 px-5 py-16 lg:grid-cols-[1fr_1.4fr]">
         <div className="space-y-4">

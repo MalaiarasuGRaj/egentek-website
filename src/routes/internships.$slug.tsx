@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { ProgramCard } from "@/components/program-card";
-import { formatPrice, getProgram, programs, type Program } from "@/lib/programs";
+import { getProgram, programs, type Program } from "@/lib/programs";
 
 export const Route = createFileRoute("/internships/$slug")({
   loader: ({ params }) => {
@@ -134,10 +134,6 @@ function Detail() {
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <div className="card-surface p-6">
             <h3 className="text-lg font-semibold">Ready to start?</h3>
-            <div className="mt-4 flex items-baseline gap-2">
-              <span className="text-3xl font-bold text-primary">{formatPrice(p.price)}</span>
-              <span className="text-sm text-muted-foreground">one-time program fee</span>
-            </div>
             <p className="mt-2 text-sm text-muted-foreground">
               Prerequisites: {p.prerequisites.join(", ")}
             </p>
@@ -154,7 +150,7 @@ function Detail() {
               </Link>
             </Button>
             <p className="mt-3 text-center text-xs text-muted-foreground">
-              We'll reply with batch dates and payment details.
+              We'll reply with batch dates and next steps.
             </p>
           </div>
         </aside>
