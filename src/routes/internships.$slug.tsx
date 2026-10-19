@@ -148,7 +148,7 @@ function Detail() {
               ))}
             </div>
             <Button asChild variant="hero" size="lg" className="mt-6 w-full">
-              <Link to="/contact" search={{ program: p.title }}>
+              <Link to="/apply" search={{ program: p.slug }}>
                 Apply Now
               </Link>
             </Button>

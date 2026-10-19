@@ -5,7 +5,16 @@ import { PageHero } from "@/components/site-layout";
 import { ProgramCard } from "@/components/program-card";
 import { programs } from "@/lib/programs";
 
+// Domains in the order they first appear in the programs list.
+const domains = [...new Set(programs.map((p) => p.category))];
+
 export const Route = createFileRoute("/internships/")({
+  validateSearch: (s: Record<string, unknown>): { domain?: string | undefined } => {
+    const domain = s["domain"];
+    return {
+      domain: typeof domain === "string" && domains.includes(domain) ? domain : undefined,
+    };
+  },
   head: () => ({
     meta: [
       { title: "Internship Programs — EGenTek" },
@@ -24,26 +33,32 @@ export const Route = createFileRoute("/internships/")({
   component: Catalog,
 });
 
-// Domains in the order they first appear in the programs list.
-const domains = [...new Set(programs.map((p) => p.category))];
+const chip = (active: boolean) =>
+  `rounded-full border px-4 py-1.5 text-sm transition-colors ${
+    active
+      ? "border-primary bg-primary text-primary-foreground"
+      : "border-border hover:border-primary hover:text-primary"
+  }`;
 
 function Catalog() {
+  const { domain } = Route.useSearch();
+  const navigate = Route.useNavigate();
   const [q, setQ] = useState("");
   const query = q.trim().toLowerCase();
 
   const groups = useMemo(
     () =>
-      domains
-        .map((domain) => ({
-          domain,
+      (domain ? [domain] : domains)
+        .map((d) => ({
+          domain: d,
           items: programs.filter(
             (p) =>
-              p.category === domain &&
+              p.category === d &&
               (p.title + p.tags.join(" ") + p.tagline).toLowerCase().includes(query),
           ),
         }))
         .filter((g) => g.items.length > 0),
-    [query],
+    [domain, query],
   );
 
   const total = groups.reduce((sum, g) => sum + g.items.length, 0);
@@ -66,6 +81,29 @@ function Catalog() {
             className="h-12 w-full rounded-full border border-input bg-card pl-11 pr-4 outline-none focus:border-primary"
           />
         </div>
+
+        <div role="group" aria-label="Filter by domain" className="mt-6 flex flex-wrap gap-2">
+          <button
+            type="button"
+            className={chip(!domain)}
+            aria-pressed={!domain}
+            onClick={() => navigate({ search: {} })}
+          >
+            All domains
+          </button>
+          {domains.map((d) => (
+            <button
+              key={d}
+              type="button"
+              className={chip(domain === d)}
+              aria-pressed={domain === d}
+              onClick={() => navigate({ search: { domain: d } })}
+            >
+              {d}
+            </button>
+          ))}
+        </div>
+
         <p className="mt-8 text-sm text-muted-foreground">
           {total} program{total !== 1 && "s"}
         </p>

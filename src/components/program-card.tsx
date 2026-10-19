@@ -42,7 +42,7 @@ export function ProgramCard({ p }: { p: Program }) {
           {p.level}
         </span>
         <Button asChild size="sm" className="relative z-10 ml-auto">
-          <Link to="/contact" search={{ program: p.title }}>
+          <Link to="/apply" search={{ program: p.slug }}>
             Apply
           </Link>
         </Button>
