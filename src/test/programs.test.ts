@@ -16,10 +16,9 @@ describe("Program catalogue", () => {
     }
   });
 
-  it("gives every program outcomes, a mini project and a final project", () => {
+  it("gives every program outcomes and a final project", () => {
     for (const p of programs) {
       expect(p.outcomes.length).toBeGreaterThan(0);
-      expect(p.miniProject).not.toBe("");
       expect(p.finalProject).not.toBe("");
     }
   });

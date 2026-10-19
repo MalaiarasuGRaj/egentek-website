@@ -20,7 +20,6 @@ export interface Program {
   outcomes: string[];
   prerequisites: string[];
   modules: Module[];
-  miniProject: string;
   finalProject: string;
 }
 
@@ -75,7 +74,6 @@ export const programs: Program[] = [
         "Code review checklist",
       ),
     ],
-    miniProject: "A responsive personal portfolio site.",
     finalProject: "A deployed multi-page React app with a documented codebase.",
   },
   {
@@ -120,7 +118,6 @@ export const programs: Program[] = [
         "Deploying an API",
       ),
     ],
-    miniProject: "A notes API with CRUD endpoints.",
     finalProject: "A secured API with a database, tests and deployment notes.",
   },
   {
@@ -164,7 +161,6 @@ export const programs: Program[] = [
       ),
       mod("Launch", "Environment configuration", "Deployment", "Monitoring basics", "Final review"),
     ],
-    miniProject: "A small data-driven page with one API endpoint.",
     finalProject: "A deployed full-stack app with login, a database and documentation.",
   },
 
@@ -205,7 +201,6 @@ export const programs: Program[] = [
         "Presenting to stakeholders",
       ),
     ],
-    miniProject: "Clean and summarise a public dataset.",
     finalProject: "An exploratory analysis notebook with visuals and a findings report.",
   },
   {
@@ -255,7 +250,6 @@ export const programs: Program[] = [
         "Final presentation",
       ),
     ],
-    miniProject: "Recreate a public report as a dashboard.",
     finalProject: "An interactive dashboard that answers a business question, with a presentation.",
   },
   {
@@ -305,7 +299,6 @@ export const programs: Program[] = [
         "Presenting findings",
       ),
     ],
-    miniProject: "Test a hypothesis on a public dataset.",
     finalProject: "An end-to-end analysis with a reproducible notebook and written findings.",
   },
 
@@ -351,7 +344,6 @@ export const programs: Program[] = [
         "Documenting limitations",
       ),
     ],
-    miniProject: "A price prediction model.",
     finalProject: "An end-to-end ML project with an evaluation report and model card.",
   },
   {
@@ -401,7 +393,6 @@ export const programs: Program[] = [
         "Debugging training",
       ),
     ],
-    miniProject: "Classify images with a pretrained CNN.",
     finalProject: "A trained and evaluated model for an image or text task, with a short report.",
   },
   {
@@ -451,7 +442,6 @@ export const programs: Program[] = [
         "Deploying a chat app",
       ),
     ],
-    miniProject: "A prompt library for one task, with tests.",
     finalProject: "A document question-answering app with citations and an evaluation report.",
   },
   {
@@ -501,7 +491,6 @@ export const programs: Program[] = [
         "Auditing agent actions",
       ),
     ],
-    miniProject: "An agent that answers questions using two tools.",
     finalProject:
       "A multi-step agent for a real workflow, with an evaluation suite and safety notes.",
   },
@@ -531,7 +520,6 @@ export const programs: Program[] = [
       mod("Quality", "Testing", "Performance", "Accessibility", "Crash reporting"),
       mod("Shipping", "Build pipelines", "Store listing basics", "Versioning", "Release checklist"),
     ],
-    miniProject: "A to-do app with local storage.",
     finalProject: "A mobile app that consumes a public API and runs on Android and iOS.",
   },
   {
@@ -575,7 +563,6 @@ export const programs: Program[] = [
         "Play Store release checklist",
       ),
     ],
-    miniProject: "A unit converter app.",
     finalProject: "A Compose app that loads data from an API and stores it locally.",
   },
   {
@@ -613,7 +600,6 @@ export const programs: Program[] = [
         "App Store checklist",
       ),
     ],
-    miniProject: "A habit tracker screen.",
     finalProject: "A SwiftUI app that loads and saves data, with tests.",
   },
 
@@ -648,7 +634,6 @@ export const programs: Program[] = [
         "Writing reports",
       ),
     ],
-    miniProject: "Harden a Linux virtual machine.",
     finalProject: "A defensive security assessment report from an authorised lab.",
   },
   {
@@ -698,7 +683,6 @@ export const programs: Program[] = [
         "Debrief with a mentor",
       ),
     ],
-    miniProject: "Assess a deliberately vulnerable lab app.",
     finalProject: "A penetration test report for an authorised lab target.",
   },
   {
@@ -748,7 +732,6 @@ export const programs: Program[] = [
         "Lessons learned",
       ),
     ],
-    miniProject: "Triage a set of sample logs.",
     finalProject:
       "A full incident investigation with timeline and report, in a simulated environment.",
   },
@@ -799,7 +782,6 @@ export const programs: Program[] = [
         "Security champions",
       ),
     ],
-    miniProject: "Review a sample app for OWASP issues.",
     finalProject: "Secure an existing app and document the threats and fixes.",
   },
 
@@ -845,7 +827,6 @@ export const programs: Program[] = [
         "Cleaning up resources",
       ),
     ],
-    miniProject: "Host a static site in the cloud.",
     finalProject: "A deployed web app with access controls, backups and a cost estimate.",
   },
   {
@@ -895,7 +876,6 @@ export const programs: Program[] = [
         "Post-deploy checks",
       ),
     ],
-    miniProject: "Automate tests for a small repository.",
     finalProject: "A pipeline that tests, builds and deploys an app, with rollback.",
   },
   {
@@ -927,7 +907,6 @@ export const programs: Program[] = [
       mod("Running Apps", "Scaling", "Rolling updates", "Resource limits", "Persistent storage"),
       mod("Operating", "Logs & metrics", "Troubleshooting", "Cost control", "Cluster hygiene"),
     ],
-    miniProject: "Containerise a small app.",
     finalProject: "A multi-service app deployed to a local or managed Kubernetes cluster.",
   },
 
@@ -967,7 +946,6 @@ export const programs: Program[] = [
         "Documentation",
       ),
     ],
-    miniProject: "A file organiser script.",
     finalProject: "An automation tool that pulls data from an API and generates a report.",
   },
   {
@@ -1005,7 +983,6 @@ export const programs: Program[] = [
         "Code style",
       ),
     ],
-    miniProject: "A library management console app.",
     finalProject: "A Java application with persistent storage and unit tests.",
   },
 
@@ -1051,7 +1028,6 @@ export const programs: Program[] = [
         "Portfolio presentation",
       ),
     ],
-    miniProject: "Redesign one mobile screen.",
     finalProject: "A complete UI kit and screen set for a small app.",
   },
   {
@@ -1095,7 +1071,6 @@ export const programs: Program[] = [
       ),
       mod("Insights", "Personas", "Journey maps", "Recommendations", "Presenting research"),
     ],
-    miniProject: "Run three interviews about an app you use.",
     finalProject: "A research report with a usability study and prioritised recommendations.",
   },
 
@@ -1135,7 +1110,6 @@ export const programs: Program[] = [
       ),
       mod("Measurement", "Analytics", "KPIs", "Reporting", "Campaign review"),
     ],
-    miniProject: "An SEO audit of a website.",
     finalProject: "A full campaign plan with a measurement framework.",
   },
   {
@@ -1179,7 +1153,6 @@ export const programs: Program[] = [
         "Iterating on results",
       ),
     ],
-    miniProject: "A week of posts for one brand.",
     finalProject: "A four-week campaign plan with creative, budget and measurement.",
   },
 ];

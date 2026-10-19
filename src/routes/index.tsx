@@ -8,7 +8,6 @@ import {
   MessagesSquare,
   LineChart,
   GitBranch,
-  Rocket,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import hero from "@/assets/hero.jpg";
@@ -21,7 +20,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Mentor-guided, project-based internships for students. Build real projects, get human feedback, earn a verifiable certificate.",
+          "Mentor-guided, project-based internships for students. Build real projects, get human feedback, earn a certificate.",
       },
       { property: "og:title", content: "EGenTek — Project-based tech internships" },
       {
@@ -42,11 +41,11 @@ const steps = [
     title: "Enroll",
     text: "See the full curriculum, duration and requirements upfront.",
   },
-  { icon: Code2, title: "Learn", text: "Short lessons, quizzes and hands-on tasks each week." },
+  { icon: Code2, title: "Learn", text: "Follow a four-week learning roadmap, one module a week." },
   {
-    icon: Rocket,
-    title: "Build",
-    text: "Ship a mini-project and a final project for your portfolio.",
+    icon: Award,
+    title: "Certify",
+    text: "Submit a final quiz and project by the end of week four, then receive your certificate.",
   },
 ];
 
@@ -68,8 +67,8 @@ const features = [
   },
   {
     icon: Award,
-    title: "Verifiable certificates",
-    text: "Each certificate has a unique ID anyone can verify.",
+    title: "Certificates",
+    text: "Finish the quiz and project, submit, and receive your certificate.",
   },
 ];
 

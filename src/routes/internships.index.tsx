@@ -53,7 +53,7 @@ function Catalog() {
       <PageHero
         eyebrow="Programs"
         title="Find your internship"
-        subtitle="Every track is four weeks long and includes lessons, weekly tasks, a mini-project, a final project and mentor reviews."
+        subtitle="Every track is four weeks long. Follow the learning roadmap, submit a final quiz and project, and receive your certificate."
       />
       <section className="mx-auto max-w-7xl px-5 py-12">
         <div className="relative max-w-md">

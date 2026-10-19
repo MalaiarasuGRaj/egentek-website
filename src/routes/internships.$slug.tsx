@@ -90,22 +90,20 @@ function Detail() {
             </ul>
           </div>
           <div>
-            <h2 className="text-2xl font-bold">Curriculum</h2>
+            <h2 className="text-2xl font-bold">Learning roadmap</h2>
             <Accordion type="multiple" defaultValue={["m0"]} className="mt-5 space-y-3">
               {p.modules.map((m, i) => (
                 <AccordionItem key={m.title} value={`m${i}`} className="card-surface border px-5">
                   <AccordionTrigger className="text-left hover:no-underline">
                     <span>
-                      <span className="mr-3 text-primary">Module {i + 1}</span>
+                      <span className="mr-3 text-primary">Week {i + 1}</span>
                       {m.title}
                     </span>
                   </AccordionTrigger>
                   <AccordionContent>
                     <ul className="space-y-2 text-muted-foreground">
-                      {m.lessons.map((l, j) => (
-                        <li key={l}>
-                          {i + 1}.{j + 1} · {l}
-                        </li>
+                      {m.lessons.map((l) => (
+                        <li key={l}>• {l}</li>
                       ))}
                     </ul>
                   </AccordionContent>
@@ -113,23 +111,26 @@ function Detail() {
               ))}
             </Accordion>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="card-surface p-6">
-              <p className="text-xs uppercase tracking-widest text-primary">Mini-project</p>
-              <p className="mt-2">{p.miniProject}</p>
-            </div>
-            <div className="card-surface p-6">
-              <p className="text-xs uppercase tracking-widest text-primary">Final project</p>
-              <p className="mt-2">{p.finalProject}</p>
+          <div>
+            <h2 className="text-2xl font-bold">Submission at the end of week four</h2>
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+              <div className="card-surface p-6">
+                <p className="text-xs uppercase tracking-widest text-primary">Final quiz</p>
+                <p className="mt-2 text-muted-foreground">Covers all four weeks of the roadmap.</p>
+              </div>
+              <div className="card-surface p-6">
+                <p className="text-xs uppercase tracking-widest text-primary">Final project</p>
+                <p className="mt-2">{p.finalProject}</p>
+              </div>
             </div>
           </div>
           <div>
-            <h2 className="text-2xl font-bold">Certificate requirements</h2>
-            <ul className="mt-4 space-y-2 text-muted-foreground">
-              <li>• Complete all modules and weekly tasks</li>
-              <li>• Pass module quizzes</li>
-              <li>• Mini-project and final project approved by a mentor</li>
-            </ul>
+            <h2 className="text-2xl font-bold">How you earn your certificate</h2>
+            <ol className="mt-5 list-decimal space-y-3 pl-5 text-muted-foreground">
+              <li>Follow the learning roadmap, one module a week.</li>
+              <li>Submit the final quiz and project by the end of week four.</li>
+              <li>Receive your certificate after you submit.</li>
+            </ol>
           </div>
         </div>
 

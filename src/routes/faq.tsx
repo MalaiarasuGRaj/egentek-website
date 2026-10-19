@@ -34,7 +34,7 @@ const faqs = [
   ],
   [
     "What will I build?",
-    "Every program includes weekly tasks, a mini-project and a final project you can add to your portfolio.",
+    "Every program follows a four-week learning roadmap, one module a week. You finish with a quiz and a project, both submitted by the end of week four.",
   ],
   [
     "Who reviews my work?",
@@ -42,7 +42,7 @@ const faqs = [
   ],
   [
     "Do I get a certificate?",
-    "Yes, once you complete the modules, pass quizzes and get your projects approved. Each certificate has a unique ID for verification.",
+    "Yes. Follow the four-week roadmap, then submit the final quiz and project. You receive your certificate after you submit.",
   ],
   [
     "Do you guarantee a job?",
