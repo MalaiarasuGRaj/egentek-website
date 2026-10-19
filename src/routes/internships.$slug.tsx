@@ -42,7 +42,9 @@ export const Route = createFileRoute("/internships/$slug")({
 
 function Detail() {
   const { program: p } = Route.useLoaderData();
-  const related = programs.filter((x) => x.slug !== p.slug && x.level === p.level).slice(0, 3);
+  const related = programs
+    .filter((x) => x.slug !== p.slug && x.category === p.category)
+    .slice(0, 3);
   const stats = [
     { icon: Clock, label: "Duration", value: `${p.weeks} weeks` },
     { icon: Timer, label: "Weekly effort", value: `${p.hoursPerWeek} hrs` },

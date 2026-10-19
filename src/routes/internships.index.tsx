@@ -12,7 +12,7 @@ export const Route = createFileRoute("/internships/")({
       {
         name: "description",
         content:
-          "Browse EGenTek internships in web, Python, Java, data, AI, design, security, cloud, mobile and marketing.",
+          "Browse EGenTek internships in web development, data, AI, mobile, cybersecurity, cloud, programming, design and marketing.",
       },
       { property: "og:title", content: "Internship Programs — EGenTek" },
       {
@@ -24,23 +24,36 @@ export const Route = createFileRoute("/internships/")({
   component: Catalog,
 });
 
+// Domains in the order they first appear in the programs list.
+const domains = [...new Set(programs.map((p) => p.category))];
+
 function Catalog() {
   const [q, setQ] = useState("");
+  const query = q.trim().toLowerCase();
 
-  const list = useMemo(
+  const groups = useMemo(
     () =>
-      programs.filter((p) =>
-        (p.title + p.tags.join(" ") + p.tagline).toLowerCase().includes(q.trim().toLowerCase()),
-      ),
-    [q],
+      domains
+        .map((domain) => ({
+          domain,
+          items: programs.filter(
+            (p) =>
+              p.category === domain &&
+              (p.title + p.tags.join(" ") + p.tagline).toLowerCase().includes(query),
+          ),
+        }))
+        .filter((g) => g.items.length > 0),
+    [query],
   );
+
+  const total = groups.reduce((sum, g) => sum + g.items.length, 0);
 
   return (
     <>
       <PageHero
         eyebrow="Programs"
         title="Find your internship"
-        subtitle="Every track includes lessons, weekly tasks, a mini-project, a final project and mentor reviews."
+        subtitle="Every track is four weeks long and includes lessons, weekly tasks, a mini-project, a final project and mentor reviews."
       />
       <section className="mx-auto max-w-7xl px-5 py-12">
         <div className="relative max-w-md">
@@ -54,16 +67,23 @@ function Catalog() {
           />
         </div>
         <p className="mt-8 text-sm text-muted-foreground">
-          {list.length} program{list.length !== 1 && "s"}
+          {total} program{total !== 1 && "s"}
         </p>
-        {list.length ? (
-          <div className="mt-4 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {list.map((p) => (
-              <ProgramCard key={p.slug} p={p} />
+        {groups.length ? (
+          <div className="mt-6 space-y-12">
+            {groups.map((g) => (
+              <div key={g.domain}>
+                <h2 className="text-2xl font-bold">{g.domain}</h2>
+                <div className="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                  {g.items.map((p) => (
+                    <ProgramCard key={p.slug} p={p} />
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         ) : (
-          <div className="card-surface mt-4 p-12 text-center text-muted-foreground">
+          <div className="card-surface mt-6 p-12 text-center text-muted-foreground">
             No programs match your search yet.
           </div>
         )}
