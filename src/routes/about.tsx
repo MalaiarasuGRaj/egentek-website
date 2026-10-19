@@ -6,9 +6,16 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About EGenTek — Built by freelancers, for students" },
-      { name: "description", content: "Why EGenTek exists: practical, project-first internships led by working freelancers." },
+      {
+        name: "description",
+        content:
+          "Why EGenTek exists: practical, project-first internships led by working freelancers.",
+      },
       { property: "og:title", content: "About EGenTek" },
-      { property: "og:description", content: "Practical, project-first internships led by working freelancers." },
+      {
+        property: "og:description",
+        content: "Practical, project-first internships led by working freelancers.",
+      },
     ],
   }),
   component: About,
@@ -16,23 +23,44 @@ export const Route = createFileRoute("/about")({
 
 const values = [
   { icon: Hammer, title: "Build first", text: "Every concept leads to something you make." },
-  { icon: ShieldCheck, title: "Honest promises", text: "Clear fees, clear requirements, no inflated claims." },
-  { icon: Lightbulb, title: "Curiosity", text: "We teach how to figure things out, not just answers." },
-  { icon: Heart, title: "Student-first", text: "Real feedback from mentors who care about your growth." },
+  {
+    icon: ShieldCheck,
+    title: "Honest promises",
+    text: "Clear fees, clear requirements, no inflated claims.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Curiosity",
+    text: "We teach how to figure things out, not just answers.",
+  },
+  {
+    icon: Heart,
+    title: "Student-first",
+    text: "Real feedback from mentors who care about your growth.",
+  },
 ];
 
 function About() {
   return (
     <>
-      <PageHero eyebrow="About us" title="The gap between college and real work is a project." subtitle="EGenTek was started by a group of freelancers who saw talented students struggle to show what they could actually build." />
+      <PageHero
+        eyebrow="About us"
+        title="The gap between college and real work is a project."
+        subtitle="EGenTek was started by a group of freelancers who saw talented students struggle to show what they could actually build."
+      />
       <section className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-2">
         <div className="card-surface p-8">
           <h2 className="text-2xl font-bold text-gradient">Mission</h2>
-          <p className="mt-3 text-muted-foreground">Give every student a structured, mentor-guided path from learning a skill to shipping real work with it.</p>
+          <p className="mt-3 text-muted-foreground">
+            Give every student a structured, mentor-guided path from learning a skill to shipping
+            real work with it.
+          </p>
         </div>
         <div className="card-surface p-8">
           <h2 className="text-2xl font-bold text-gradient">Vision</h2>
-          <p className="mt-3 text-muted-foreground">A generation of builders who graduate with portfolios, not just transcripts.</p>
+          <p className="mt-3 text-muted-foreground">
+            A generation of builders who graduate with portfolios, not just transcripts.
+          </p>
         </div>
       </section>
       <section className="mx-auto max-w-6xl px-5 pb-20">

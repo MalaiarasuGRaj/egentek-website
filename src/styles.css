@@ -114,8 +114,16 @@
 }
 
 @layer base {
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
-  body { font-family: var(--font-sans); }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  body {
+    font-family: var(--font-sans);
+  }
 }
 
 @utility text-gradient {
@@ -124,21 +132,47 @@
   -webkit-background-clip: text;
   color: transparent;
 }
-@utility bg-brand { background-image: var(--gradient-brand); }
-@utility bg-glow { background-image: var(--gradient-glow); }
-@utility shadow-glow { box-shadow: var(--shadow-glow); }
+@utility bg-brand {
+  background-image: var(--gradient-brand);
+}
+@utility bg-glow {
+  background-image: var(--gradient-glow);
+}
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
 @utility grid-bg {
-  background-image: linear-gradient(oklch(0.3 0.04 262 / 5%) 1px, transparent 1px), linear-gradient(90deg, oklch(0.3 0.04 262 / 5%) 1px, transparent 1px);
+  background-image:
+    linear-gradient(oklch(0.3 0.04 262 / 5%) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.3 0.04 262 / 5%) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 @utility card-surface {
   background-color: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
-  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 @utility card-hover {
-  &:hover { transform: translateY(-4px); border-color: oklch(0.58 0.15 230 / 45%); box-shadow: var(--shadow-glow); }
+  &:hover {
+    transform: translateY(-4px);
+    border-color: oklch(0.58 0.15 230 / 45%);
+    box-shadow: var(--shadow-glow);
+  }
 }
-@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-@utility animate-rise { animation: rise .7s ease both; }
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@utility animate-rise {
+  animation: rise 0.7s ease both;
+}

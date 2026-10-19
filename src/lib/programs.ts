@@ -50,11 +50,27 @@ export const programs: Program[] = [
     price: 4999,
     format: "Cohort",
     tags: ["HTML", "CSS", "JavaScript", "React", "Node"],
-    outcomes: ["Build responsive layouts", "Write modern JavaScript", "Create React interfaces", "Connect a frontend to an API", "Deploy to the web"],
+    outcomes: [
+      "Build responsive layouts",
+      "Write modern JavaScript",
+      "Create React interfaces",
+      "Connect a frontend to an API",
+      "Deploy to the web",
+    ],
     prerequisites: ["Basic computer skills", "Curiosity to build"],
     modules: [
-      mod("Web Foundations", "How the web works", "Semantic HTML", "CSS layout with Flexbox & Grid"),
-      mod("JavaScript Essentials", "Variables, functions & control flow", "DOM manipulation", "Async & fetch"),
+      mod(
+        "Web Foundations",
+        "How the web works",
+        "Semantic HTML",
+        "CSS layout with Flexbox & Grid",
+      ),
+      mod(
+        "JavaScript Essentials",
+        "Variables, functions & control flow",
+        "DOM manipulation",
+        "Async & fetch",
+      ),
       mod("React in Practice", "Components & props", "State & effects", "Routing"),
       mod("Backend & Deployment", "REST APIs", "Databases 101", "Shipping to production"),
     ],
@@ -72,7 +88,12 @@ export const programs: Program[] = [
     price: 3499,
     format: "Self-paced",
     tags: ["Python", "OOP", "Scripting"],
-    outcomes: ["Master Python syntax", "Use object-oriented design", "Automate files & spreadsheets", "Work with APIs"],
+    outcomes: [
+      "Master Python syntax",
+      "Use object-oriented design",
+      "Automate files & spreadsheets",
+      "Work with APIs",
+    ],
     prerequisites: ["None"],
     modules: [
       mod("Python Basics", "Data types", "Loops & conditions", "Functions"),
@@ -93,7 +114,12 @@ export const programs: Program[] = [
     price: 4499,
     format: "Hybrid",
     tags: ["Java", "OOP", "DSA"],
-    outcomes: ["Write clean Java", "Apply OOP principles", "Use core data structures", "Build a console app"],
+    outcomes: [
+      "Write clean Java",
+      "Apply OOP principles",
+      "Use core data structures",
+      "Build a console app",
+    ],
     prerequisites: ["Basic programming logic"],
     modules: [
       mod("Java Foundations", "JVM & syntax", "Control flow", "Arrays & strings"),
@@ -135,7 +161,12 @@ export const programs: Program[] = [
     price: 5999,
     format: "Cohort",
     tags: ["Python", "scikit-learn", "Responsible AI"],
-    outcomes: ["Prepare data for ML", "Train common models", "Evaluate performance", "Understand AI ethics"],
+    outcomes: [
+      "Prepare data for ML",
+      "Train common models",
+      "Evaluate performance",
+      "Understand AI ethics",
+    ],
     prerequisites: ["Python basics"],
     modules: [
       mod("ML Concepts", "What learning means", "Supervised vs unsupervised", "Data prep"),
@@ -156,7 +187,12 @@ export const programs: Program[] = [
     price: 3999,
     format: "Hybrid",
     tags: ["Figma", "Research", "Prototyping"],
-    outcomes: ["Run user interviews", "Create wireframes", "Build interactive prototypes", "Assemble a case study"],
+    outcomes: [
+      "Run user interviews",
+      "Create wireframes",
+      "Build interactive prototypes",
+      "Assemble a case study",
+    ],
     prerequisites: ["None"],
     modules: [
       mod("Design Principles", "Hierarchy", "Color & type", "Accessibility"),
@@ -240,7 +276,12 @@ export const programs: Program[] = [
     price: 2999,
     format: "Self-paced",
     tags: ["SEO", "Content", "Analytics"],
-    outcomes: ["Do keyword research", "Write optimized content", "Read analytics", "Plan a campaign"],
+    outcomes: [
+      "Do keyword research",
+      "Write optimized content",
+      "Read analytics",
+      "Plan a campaign",
+    ],
     prerequisites: ["None"],
     modules: [
       mod("SEO", "How search works", "Keywords", "On-page SEO"),

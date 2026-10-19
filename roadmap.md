@@ -1,4 +1,6 @@
-# Leader quotes
-- [ ] Add an automatically rotating homepage quotes section with manual navigation and pause.
-- [ ] Refresh published quotes when new entries become available.
-- [ ] Verify rotation, navigation, new-entry updates, and mobile layout.
+# Roadmap
+
+## Leader quotes
+- [x] Automatically rotating homepage quotes with previous/next navigation.
+- [x] One quote per leader, with self-hosted photos and source links.
+- [ ] Verify the rotation, navigation and layout on a real mobile device.
