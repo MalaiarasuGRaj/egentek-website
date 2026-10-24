@@ -75,9 +75,10 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "EGenTek — Project-based tech internships" },
+      { title: "EGenTek - Project-based tech internships" },
       { name: "description", content: "Practical, mentor-guided internships for students." },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "/brand/egentek-full-logo-transparent-bg.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -85,8 +86,9 @@ export const Route = createRootRoute({
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-      { rel: "alternate icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon.png" },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "apple-touch-icon", sizes: "96x96", href: "/favicon-96.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

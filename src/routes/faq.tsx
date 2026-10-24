@@ -10,13 +10,13 @@ import { PageHero } from "@/components/site-layout";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ — EGenTek Internships" },
+      { title: "FAQ - EGenTek Internships" },
       {
         name: "description",
         content:
           "Answers about EGenTek internships, eligibility, projects, mentors and certificates.",
       },
-      { property: "og:title", content: "FAQ — EGenTek" },
+      { property: "og:title", content: "FAQ - EGenTek" },
       { property: "og:description", content: "Common questions about EGenTek internships." },
     ],
   }),

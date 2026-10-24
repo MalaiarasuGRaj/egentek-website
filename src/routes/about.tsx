@@ -5,7 +5,7 @@ import { PageHero } from "@/components/site-layout";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About EGenTek — Built by freelancers, for students" },
+      { title: "About EGenTek - Built by freelancers, for students" },
       {
         name: "description",
         content:

@@ -17,13 +17,13 @@ export const Route = createFileRoute("/internships/")({
   },
   head: () => ({
     meta: [
-      { title: "Internship Programs — EGenTek" },
+      { title: "Internship Programs - EGenTek" },
       {
         name: "description",
         content:
           "Browse EGenTek internships in web development, data, AI, mobile, cybersecurity, cloud, programming, design and marketing.",
       },
-      { property: "og:title", content: "Internship Programs — EGenTek" },
+      { property: "og:title", content: "Internship Programs - EGenTek" },
       {
         property: "og:description",
         content: "Find a project-based internship that fits your goals.",

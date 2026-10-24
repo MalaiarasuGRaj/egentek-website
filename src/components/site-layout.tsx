@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { EGenTekMark } from "@/components/egentek-logo";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -11,12 +12,13 @@ const nav = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-export function Logo() {
+export function Logo({ className = "" }: { className?: string }) {
   return (
-    <Link to="/" className="flex items-center gap-2 font-display text-xl font-bold">
-      <span className="grid size-8 place-items-center rounded-lg bg-primary text-primary-foreground">
-        E
-      </span>
+    <Link
+      to="/"
+      className={`group flex items-center gap-2.5 font-display text-xl font-bold tracking-tight ${className}`}
+    >
+      <EGenTekMark className="size-8 transition-transform group-hover:scale-105" />
       <span>
         EGen<span className="text-primary">Tek</span>
       </span>
@@ -95,7 +97,24 @@ export function SiteFooter() {
         <div>
           <h4 className="mb-3 text-sm font-semibold">Contact</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li>hello@egentek.in</li>
+            <li>
+              <a
+                href="mailto:official.egentek@gmail.com"
+                className="hover:text-foreground hover:underline"
+              >
+                official.egentek@gmail.com
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/company/egentek"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-foreground hover:underline"
+              >
+                LinkedIn
+              </a>
+            </li>
             <li>India · Remote-first</li>
           </ul>
         </div>

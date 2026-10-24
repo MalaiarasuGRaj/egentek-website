@@ -16,13 +16,13 @@ import { LeaderQuotes } from "@/components/leader-quotes";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "EGenTek — Project-based tech internships" },
+      { title: "EGenTek - Project-based tech internships" },
       {
         name: "description",
         content:
           "Mentor-guided, project-based internships for students. Build real projects, get human feedback, earn a certificate.",
       },
-      { property: "og:title", content: "EGenTek — Project-based tech internships" },
+      { property: "og:title", content: "EGenTek - Project-based tech internships" },
       {
         property: "og:description",
         content: "Learn by building real projects with mentors who ship client work every week.",

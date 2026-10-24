@@ -18,7 +18,7 @@ export const Route = createFileRoute("/internships/$slug")({
   },
   head: ({ loaderData }) => {
     const p = loaderData?.program;
-    const title = p ? `${p.title} Internship — EGenTek` : "Program unavailable — EGenTek";
+    const title = p ? `${p.title} Internship - EGenTek` : "Program unavailable - EGenTek";
     const desc = p?.tagline ?? "This program could not be found.";
     return {
       meta: [
