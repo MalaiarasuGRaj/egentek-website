@@ -1,11 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Check, Clock, Layers, Monitor, Timer } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { BookOpen, Check, Clock, Layers, Monitor, Timer } from "lucide-react";
 import { ApplyButton } from "@/components/apply-button";
 import { ProgramCard } from "@/components/program-card";
 import { getProgram, programs, type Program } from "@/lib/programs";
@@ -90,33 +84,26 @@ function Detail() {
             </ul>
           </div>
           <div>
-            <h2 className="text-2xl font-bold">Learning roadmap</h2>
-            <Accordion type="multiple" defaultValue={["m0"]} className="mt-5 space-y-3">
-              {p.modules.map((m, i) => (
-                <AccordionItem key={m.title} value={`m${i}`} className="card-surface border px-5">
-                  <AccordionTrigger className="text-left hover:no-underline">
-                    <span>
-                      <span className="mr-3 text-primary">Week {i + 1}</span>
-                      {m.title}
-                    </span>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <ul className="space-y-2 text-muted-foreground">
-                      {m.lessons.map((l) => (
-                        <li key={l}>• {l}</li>
-                      ))}
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            <h2 className="text-2xl font-bold">Learning modules</h2>
+            <div className="card-surface mt-5 flex items-start gap-4 p-6">
+              <BookOpen className="mt-1 size-6 shrink-0 text-primary" />
+              <div>
+                <h3 className="font-semibold text-foreground">Curriculum access</h3>
+                <p className="mt-1 text-muted-foreground">
+                  Once you register for the internship program, the expert-curated learning modules
+                  will be shared.
+                </p>
+              </div>
+            </div>
           </div>
           <div>
-            <h2 className="text-2xl font-bold">Submission at the end of week four</h2>
+            <h2 className="text-2xl font-bold">Final submission</h2>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <div className="card-surface p-6">
                 <p className="text-xs uppercase tracking-widest text-primary">Final quiz</p>
-                <p className="mt-2 text-muted-foreground">Covers all four weeks of the roadmap.</p>
+                <p className="mt-2 text-muted-foreground">
+                  Covers all modules in the program curriculum.
+                </p>
               </div>
               <div className="card-surface p-6">
                 <p className="text-xs uppercase tracking-widest text-primary">Final project</p>
@@ -127,8 +114,8 @@ function Detail() {
           <div>
             <h2 className="text-2xl font-bold">How you earn your certificate</h2>
             <ol className="mt-5 list-decimal space-y-3 pl-5 text-muted-foreground">
-              <li>Follow the learning roadmap, one module a week.</li>
-              <li>Submit the final quiz and project by the end of week four.</li>
+              <li>Follow the expert-curated learning modules.</li>
+              <li>Submit the final quiz and project upon completing the curriculum.</li>
               <li>Receive your certificate after you submit.</li>
             </ol>
           </div>

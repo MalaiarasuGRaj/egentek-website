@@ -20,8 +20,7 @@ export const Route = createFileRoute("/internships/")({
       { title: "Internship Programs - EGenTek" },
       {
         name: "description",
-        content:
-          "Browse EGenTek internships in web development, data, AI, mobile, cybersecurity, cloud, programming, design and marketing.",
+        content: "Browse EGenTek internships in Data and AI.",
       },
       { property: "og:title", content: "Internship Programs - EGenTek" },
       {

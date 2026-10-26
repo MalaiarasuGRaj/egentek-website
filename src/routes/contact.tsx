@@ -172,8 +172,7 @@ function Contact() {
         <div className="card-surface mt-12 p-8 text-center sm:p-10">
           <h3 className="text-xl font-bold">Looking to join an internship?</h3>
           <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
-            Explore our project-based internship tracks in web development, data science, AI,
-            mobile, cybersecurity, and cloud.
+            Explore our project-based internship tracks in Data and AI.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Button asChild variant="hero" size="lg">

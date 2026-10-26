@@ -5,16 +5,16 @@ import { PageHero } from "@/components/site-layout";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About EGenTek - Built by freelancers, for students" },
+      { title: "About EGenTek - Designed by industry experts, for students" },
       {
         name: "description",
         content:
-          "Why EGenTek exists: practical, project-first internships led by working freelancers.",
+          "Why EGenTek exists: practical, project-first internships designed by industry experts.",
       },
       { property: "og:title", content: "About EGenTek" },
       {
         property: "og:description",
-        content: "Practical, project-first internships led by working freelancers.",
+        content: "Practical, project-first internships designed by industry experts.",
       },
     ],
   }),
@@ -46,7 +46,7 @@ function About() {
       <PageHero
         eyebrow="About us"
         title="The gap between college and real work is a project."
-        subtitle="EGenTek was started by a group of freelancers who saw talented students struggle to show what they could actually build."
+        subtitle="EGenTek was founded by industry experts who saw talented students struggle to show what they could actually build."
       />
       <section className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-2">
         <div className="card-surface p-8">

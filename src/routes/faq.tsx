@@ -38,7 +38,7 @@ const faqs = [
   ],
   [
     "Who reviews my work?",
-    "Working freelancers act as mentors and give written feedback on your submissions.",
+    "Industry experts act as mentors and give written feedback on your submissions.",
   ],
   [
     "Do I get a certificate?",

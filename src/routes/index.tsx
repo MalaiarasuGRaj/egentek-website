@@ -53,7 +53,7 @@ const features = [
   {
     icon: MessagesSquare,
     title: "Mentor reviews",
-    text: "Every submission gets human feedback from working freelancers.",
+    text: "Every submission gets human feedback from industry experts.",
   },
   {
     icon: LineChart,
@@ -140,8 +140,8 @@ function Index() {
               <span className="text-primary">not a lecture hall.</span>
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Our mentors are freelancers who ship client work every week. You'll learn the same
-              tools, habits and review process they use.
+              Our curriculums are designed by industry experts who ship real-world work every week.
+              You'll learn the same tools, habits and review process they use.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">

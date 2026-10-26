@@ -25,7 +25,8 @@ export interface Program {
 
 const mod = (title: string, ...lessons: string[]): Module => ({ title, lessons });
 
-export const programs: Program[] = [
+/** Master catalogue containing all available internship tracks. */
+export const allPrograms: Program[] = [
   // Web Development
   {
     slug: "front-end-development",
@@ -1157,4 +1158,14 @@ export const programs: Program[] = [
   },
 ];
 
+/**
+ * Currently active domains.
+ * For the initial launch, only Data and AI tracks are active.
+ * To enable more domains in the future, simply add them to this array.
+ */
+export const ACTIVE_DOMAINS: readonly string[] = ["Data", "AI"];
+
+export const programs: Program[] = allPrograms.filter((p) => ACTIVE_DOMAINS.includes(p.category));
+
 export const getProgram = (slug: string) => programs.find((p) => p.slug === slug);
+export const getAllProgram = (slug: string) => allPrograms.find((p) => p.slug === slug);
