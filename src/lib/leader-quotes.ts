@@ -3,7 +3,6 @@ export type LeaderQuote = {
   quote: string;
   name: string;
   role: string;
-  company: string;
   description: string;
   sourceUrl: string;
   imageUrl: string;
@@ -11,8 +10,9 @@ export type LeaderQuote = {
 };
 
 // Public statements from each leader, shown for context. These are not EGenTek
-// endorsements. Each leader appears once. Photos are self-hosted in /public/leaders
-// with their Wikimedia Commons source linked as the photo credit.
+// endorsements. Each leader appears once. Photos are self-hosted in /public/leaders.
+// sourceUrl and imageSourceUrl are kept as the verification and licence record.
+// The page shows only the quote, the name, the role and the description.
 export const leaderQuotes: LeaderQuote[] = [
   {
     id: "andrew-ng",
@@ -20,7 +20,6 @@ export const leaderQuotes: LeaderQuote[] = [
     description: "A concise analogy for AI becoming a foundational technology across industries.",
     name: "Andrew Ng",
     role: "AI researcher and entrepreneur",
-    company: "Stanford Graduate School of Business",
     sourceUrl: "https://www.gsb.stanford.edu/insights/andrew-ng-why-ai-new-electricity",
     imageUrl: "/leaders/andrew-ng.png",
     imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Andrew_Ng.png",
@@ -31,7 +30,6 @@ export const leaderQuotes: LeaderQuote[] = [
     description: "A view of advanced AI as a way to extend what people can do.",
     name: "Sam Altman",
     role: "OpenAI CEO",
-    company: "Planning for AGI and beyond",
     sourceUrl: "https://openai.com/index/planning-for-agi-and-beyond/",
     imageUrl: "/leaders/sam-altman.jpg",
     imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Sam_Altman_CropEdit_James_Tamim.jpg",
@@ -44,7 +42,6 @@ export const leaderQuotes: LeaderQuote[] = [
       "Hassabis explains his lifelong commitment to AI as a technology that could benefit humanity.",
     name: "Demis Hassabis",
     role: "Google DeepMind co-founder and CEO",
-    company: "AFP report, October 2024",
     sourceUrl:
       "https://www.macaubusiness.com/demis-hassabis-from-chess-prodigy-to-nobel-winning-ai-pioneer/",
     imageUrl: "/leaders/demis-hassabis.jpg",
@@ -59,7 +56,6 @@ export const leaderQuotes: LeaderQuote[] = [
       "Huang describes AI as the start of a new computing era across industries and research.",
     name: "Jensen Huang",
     role: "NVIDIA founder and CEO",
-    company: "HKUST honorary doctorate speech, November 2024",
     sourceUrl:
       "https://www.thestandard.com.hk/news/article/223055/Nvidia-CEO-Huang-says-the-age-of-AI-has-started",
     imageUrl: "/leaders/jensen-huang.jpg",
@@ -72,7 +68,6 @@ export const leaderQuotes: LeaderQuote[] = [
       "Pichai frames AI as one of the most significant technologies humanity has developed.",
     name: "Sundar Pichai",
     role: "Alphabet and Google CEO",
-    company: "World Economic Forum, Davos, 2018",
     sourceUrl:
       "https://www.hollywoodreporter.com/business/business-news/google-ceo-calls-ai-more-profound-electricity-fire-1077805/",
     imageUrl: "/leaders/sundar-pichai.jpg",
@@ -85,7 +80,6 @@ export const leaderQuotes: LeaderQuote[] = [
     description: "Nadella explains that Microsoft designed its AI to keep people in control.",
     name: "Satya Nadella",
     role: "Microsoft CEO",
-    company: "Interview, December 2023",
     sourceUrl:
       "https://www.gpb.org/news/2023/12/27/microsoft-ceo-satya-nadella-discusses-the-promise-and-potential-perils-of-ai",
     imageUrl: "/leaders/satya-nadella.jpg",

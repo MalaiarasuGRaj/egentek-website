@@ -137,27 +137,7 @@ export function LeaderQuotes() {
             <footer className="mt-8 flex flex-wrap items-end justify-between gap-4 border-t border-border pt-5">
               <div>
                 <p className="text-lg font-semibold">{current.name}</p>
-                <p className="text-sm text-muted-foreground">
-                  {[current.role, current.company].filter(Boolean).join(" · ")}
-                </p>
-                <div className="mt-2 flex flex-wrap gap-x-4">
-                  <a
-                    className="text-xs text-primary underline-offset-4 hover:underline"
-                    href={current.sourceUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Quote source
-                  </a>
-                  <a
-                    className="text-xs text-muted-foreground underline-offset-4 hover:underline"
-                    href={current.imageSourceUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Photo credit
-                  </a>
-                </div>
+                <p className="text-sm text-muted-foreground">{current.role}</p>
               </div>
               <span className="text-xs tabular-nums text-muted-foreground">
                 {String(index + 1).padStart(2, "0")} / {String(quotes.length).padStart(2, "0")}

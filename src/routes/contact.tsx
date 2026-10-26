@@ -49,11 +49,15 @@ function Contact() {
     : "Inquiry about EGenTek Internships";
   const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(mailSubject)}`;
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(email);
-    setCopied(true);
-    toast.success("Email address copied to clipboard!");
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      toast.success("Email address copied to clipboard!");
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      toast.error("Could not copy automatically. Select the address and copy it instead.");
+    }
   };
 
   return (

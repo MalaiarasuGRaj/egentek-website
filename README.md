@@ -42,5 +42,6 @@ Quotes are in `src/lib/leader-quotes.ts`. Each entry needs a verifiable `sourceU
 
 1. Import the repository in Vercel.
 2. Vercel reads `vercel.json`: it runs `npm run build` and serves `dist/client`.
+3. Set `VITE_SITE_URL` to the production address, for example `https://www.example.com`. It makes the social image links and `sitemap.xml` absolute. The site still builds without it.
 
-Every page is pre-rendered at build time (including each internship), so the site works without client-side routing. No environment variables are required.
+Every page is pre-rendered at build time (including each internship), so the site works without client-side routing. Unknown URLs show the styled 404 page through the prerendered `404.html`.

@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/site-layout";
 import { ProgramCard } from "@/components/program-card";
+import { matchesProgramSearch } from "@/lib/program-search";
 import { programs } from "@/lib/programs";
 
 // Domains in the order they first appear in the programs list.
@@ -43,21 +45,16 @@ function Catalog() {
   const { domain } = Route.useSearch();
   const navigate = Route.useNavigate();
   const [q, setQ] = useState("");
-  const query = q.trim().toLowerCase();
 
   const groups = useMemo(
     () =>
       (domain ? [domain] : domains)
         .map((d) => ({
           domain: d,
-          items: programs.filter(
-            (p) =>
-              p.category === d &&
-              (p.title + p.tags.join(" ") + p.tagline).toLowerCase().includes(query),
-          ),
+          items: programs.filter((p) => p.category === d && matchesProgramSearch(p, q)),
         }))
         .filter((g) => g.items.length > 0),
-    [domain, query],
+    [domain, q],
   );
 
   const total = groups.reduce((sum, g) => sum + g.items.length, 0);
@@ -77,8 +74,18 @@ function Catalog() {
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search by skill or tool…"
             aria-label="Search internships"
-            className="h-12 w-full rounded-full border border-input bg-card pl-11 pr-4 outline-none focus:border-primary"
+            className="h-12 w-full rounded-full border border-input bg-card pl-11 pr-11 outline-none focus:border-primary"
           />
+          {q && (
+            <button
+              type="button"
+              onClick={() => setQ("")}
+              aria-label="Clear search"
+              className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            >
+              <X className="size-4" />
+            </button>
+          )}
         </div>
 
         <div role="group" aria-label="Filter by domain" className="mt-6 flex flex-wrap gap-2">
@@ -120,8 +127,13 @@ function Catalog() {
             ))}
           </div>
         ) : (
-          <div className="card-surface mt-6 p-12 text-center text-muted-foreground">
-            No programs match your search yet.
+          <div className="card-surface mt-6 flex flex-col items-center gap-4 p-12 text-center text-muted-foreground">
+            <p>No programs match your search.</p>
+            {q && (
+              <Button variant="glass" size="sm" onClick={() => setQ("")}>
+                Clear search
+              </Button>
+            )}
           </div>
         )}
       </section>

@@ -1167,5 +1167,11 @@ export const ACTIVE_DOMAINS: readonly string[] = ["Data", "AI"];
 
 export const programs: Program[] = allPrograms.filter((p) => ACTIVE_DOMAINS.includes(p.category));
 
+/** Weekly time commitment across the active programs, for stating it on the About and FAQ pages. */
+export const weeklyHours = {
+  min: Math.min(...programs.map((p) => p.hoursPerWeek)),
+  max: Math.max(...programs.map((p) => p.hoursPerWeek)),
+};
+
 export const getProgram = (slug: string) => programs.find((p) => p.slug === slug);
 export const getAllProgram = (slug: string) => allPrograms.find((p) => p.slug === slug);

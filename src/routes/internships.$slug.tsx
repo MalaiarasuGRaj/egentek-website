@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { BookOpen, Check, Clock, Layers, Monitor, Timer } from "lucide-react";
 import { ApplyButton } from "@/components/apply-button";
 import { ProgramCard } from "@/components/program-card";
-import { getProgram, programs, type Program } from "@/lib/programs";
+import { getProgram, programs } from "@/lib/programs";
 
 export const Route = createFileRoute("/internships/$slug")({
   loader: ({ params }) => {
@@ -90,8 +90,8 @@ function Detail() {
               <div>
                 <h3 className="font-semibold text-foreground">Curriculum access</h3>
                 <p className="mt-1 text-muted-foreground">
-                  Once you register for the internship program, the expert-curated learning modules
-                  will be shared.
+                  Once you register and are shortlisted for the internship program, the
+                  expert-curated learning modules will be shared.
                 </p>
               </div>
             </div>

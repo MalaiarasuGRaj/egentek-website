@@ -13,6 +13,9 @@ import appCss from "../styles.css?url";
 import { SiteHeader, SiteFooter } from "@/components/site-layout";
 import { Toaster } from "@/components/ui/sonner";
 
+// Empty unless VITE_SITE_URL is set at build time; social image URLs need the full domain.
+const siteUrl = import.meta.env["VITE_SITE_URL"] ?? "";
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -78,14 +81,16 @@ export const Route = createRootRoute({
       { title: "EGenTek - Project-based tech internships" },
       { name: "description", content: "Practical, mentor-guided internships for students." },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "/brand/egentek-full-logo-transparent-bg.png" },
+      { property: "og:image", content: `${siteUrl}/brand/egentek-full-logo-transparent-bg.png` },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: `${siteUrl}/brand/egentek-full-logo-transparent-bg.png` },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon.png" },
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "apple-touch-icon", sizes: "96x96", href: "/favicon-96.png" },

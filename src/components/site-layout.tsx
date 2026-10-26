@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { EGenTekMark } from "@/components/egentek-logo";
@@ -130,17 +130,32 @@ export function PageHero({
   eyebrow,
   title,
   subtitle,
+  align = "center",
+  actions,
 }: {
   eyebrow: string;
   title: string;
   subtitle: string;
+  /** "start" left-aligns the heading to the site grid, the layout used by corporate pages. */
+  align?: "center" | "start";
+  actions?: ReactNode;
 }) {
+  const centered = align === "center";
   return (
     <section className="relative overflow-hidden border-b border-border">
-      <div className="relative mx-auto max-w-4xl px-5 py-20 text-center">
+      <div
+        className={
+          centered
+            ? "relative mx-auto max-w-4xl px-5 py-20 text-center"
+            : "mx-auto max-w-6xl px-5 py-20"
+        }
+      >
         <p className="text-sm font-semibold uppercase tracking-widest text-primary">{eyebrow}</p>
         <h1 className="mt-3 text-4xl font-bold md:text-5xl">{title}</h1>
-        <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">{subtitle}</p>
+        <p className={`mt-4 max-w-2xl text-muted-foreground ${centered ? "mx-auto" : ""}`}>
+          {subtitle}
+        </p>
+        {actions && <div className="mt-8 flex flex-wrap gap-3">{actions}</div>}
       </div>
     </section>
   );
