@@ -107,7 +107,7 @@ export function SiteFooter() {
             </li>
             <li>
               <a
-                href="https://www.linkedin.com/company/egentek"
+                href="https://www.linkedin.com/company/egentek-ai-lab"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-foreground hover:underline"

@@ -133,7 +133,7 @@ function Contact() {
             </div>
             <div className="mt-6">
               <Button asChild variant="hero" size="sm" className="w-full">
-                <a href="https://www.linkedin.com/company/egentek" target="_blank" rel="noreferrer">
+                <a href="https://www.linkedin.com/company/egentek-ai-lab" target="_blank" rel="noreferrer">
                   <Linkedin className="size-4" /> Visit LinkedIn{" "}
                   <ExternalLink className="size-3.5 opacity-70" />
                 </a>
